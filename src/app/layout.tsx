@@ -1,19 +1,25 @@
-import type { Metadata } from "next";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import { WEBSITE_METADATA } from "@/config/metadata";
+import { cn } from "@/lib/utils";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Eduardo Couto @ Dev",
-  description: "",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export const metadata = WEBSITE_METADATA;
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="h-full">
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body
+        className={cn("bg-background flex min-h-full flex-col antialiased")}
+      >
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
