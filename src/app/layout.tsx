@@ -12,7 +12,7 @@ export const metadata = WEBSITE_METADATA;
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full overflow-x-hidden">
       <body
         className={cn("bg-background flex min-h-full flex-col antialiased")}
       >

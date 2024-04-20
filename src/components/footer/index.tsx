@@ -6,8 +6,8 @@ export default function Footer() {
 
   return (
     <footer className="w-full border-t min-h-16">
-      <Container className="w-full flex flex-col items-start gap-4 md:flex-row md:items-center justify-between">
-        <section className="order-last md:order-first">
+      <Container className="w-full flex flex-col items-start gap-4 lg:flex-row lg:items-center justify-between">
+        <section className="order-last lg:order-first">
           <a href="/" className="text-xs group">
             © {currentYear}{" "}
             <span className="group-hover:underline underline-offset-4">
@@ -16,7 +16,7 @@ export default function Footer() {
             All rights reserved.
           </a>
         </section>
-        <nav className="flex flex-col gap-4 md:flex-row">
+        <nav className="flex flex-col gap-4 lg:flex-row">
           <Link className="text-xs hover:underline underline-offset-4" href="#">
             Terms of Service
           </Link>

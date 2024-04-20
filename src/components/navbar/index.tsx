@@ -14,7 +14,7 @@ export default function Navbar() {
       href: "#",
     },
     {
-      title: "Carreer",
+      title: "Career",
       href: "#",
     },
     {
@@ -34,7 +34,8 @@ export default function Navbar() {
 
             <h1 className="text-xl font-bold">Eduardo Couto</h1>
           </Link>
-          <nav className="hidden md:items-center md:justify-around md:gap-4 md:flex">
+          {/* Add Navigation Menu from shadcn */}
+          <nav className="hidden lg:items-center lg:justify-around lg:gap-4 lg:flex">
             {NAV_LINKS.map((navLink) => (
               <NavbarLink key={navLink.title} {...navLink}></NavbarLink>
             ))}
