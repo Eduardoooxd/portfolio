@@ -12,7 +12,7 @@ export default function LandingPageHero() {
           <p className="max-w-[600px] text-gray-500 text-base lg:text-xl dark:text-gray-400">
             I am a versatile full-stack software developer with a passion for
             creating innovative and user-friendly applications. With over 2
-            years of experience, I have honed my skills in TyoeScript, React,
+            years of experience, I have honed my skills in Typescript, React,
             Node.js, and various backend technologies. I am dedicated to
             delivering high-quality, scalable, and maintainable solutions that
             solve real-world problems.
@@ -27,7 +27,7 @@ export default function LandingPageHero() {
 
           <Button asChild variant="link">
             <Link className="" href="#">
-              Hire Me
+              Contact Me
             </Link>
           </Button>
         </div>
