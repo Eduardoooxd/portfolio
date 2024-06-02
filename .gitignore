@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+# Ignore the ~ directory created by pnpm
+~
 
 # testing
 /coverage
