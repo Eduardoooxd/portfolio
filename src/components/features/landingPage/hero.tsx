@@ -9,7 +9,10 @@ export default function LandingPageHero() {
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             Hello 👋, <br /> I'm Eduardo Couto
           </h2>
-          <p className="max-w-[600px] text-gray-500 text-base lg:text-xl dark:text-gray-400">
+          <h3 className="text-2xl font-semibold text-gray-400">
+            Full-Stack Developer
+          </h3>
+          <p className="max-w-[600px] text-base">
             I am a versatile full-stack software developer with a passion for
             creating innovative and user-friendly applications. With over 2
             years of experience, I have honed my skills in Typescript, React,
@@ -20,13 +23,13 @@ export default function LandingPageHero() {
         </article>
         <div className="flex flex-col gap-2 min-[400px]:flex-row">
           <Button asChild className="px-8">
-            <Link className="" href="#">
+            <Link target="_blank" className="" href="/eduardo_couto_resume.pdf">
               View Resume
             </Link>
           </Button>
 
           <Button asChild variant="link">
-            <Link className="" href="#">
+            <Link className="" href="contact">
               Contact Me
             </Link>
           </Button>
