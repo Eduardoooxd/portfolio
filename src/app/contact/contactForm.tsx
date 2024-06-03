@@ -18,7 +18,6 @@ import { useForm } from "react-hook-form";
 
 export default function ContactForm() {
   const [isPending, startTransition] = useTransition();
-  console.log(isPending);
 
   const form = useForm<ContactFormType>({
     resolver: zodResolver(ContactFormSchema),

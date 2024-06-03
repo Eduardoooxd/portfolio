@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
 export const WEBSITE_METADATA: Metadata = {
-  title: "Eduardo Couto",
-  description: "Eduardo Couto's Personal website",
+  title: "Eduardo Couto | Personal Portfolio",
+  description:
+    "Eduardo Couto is a full-stsack developer with 2 years of experience. He is passionate about technology and programming. He is always looking for new challenges and opportunities to learn and grow.",
   applicationName: "Eduardo Couto Personal Portfolio",
   creator: "Eduardo Couto",
   authors: [
