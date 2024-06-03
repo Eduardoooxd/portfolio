@@ -1,29 +1,30 @@
 "use server";
 
-import { z } from "zod";
+import { ContactFormSchema } from "@/domain/contactForm";
+import { environmentVariables } from "@/lib/environment";
+import { Resend } from "resend";
 
-export const contactFormSchema = z.object({
-  name: z
-    .string()
-    .min(2, {
-      message: "Name must be at least 2 characters long",
-    })
-    .max(50, {
-      message: "Name must be at most 50 characters long",
-    }),
-  email: z.string().email({
-    message: "Invalid email address",
-  }),
-  message: z
-    .string()
-    .min(10, {
-      message: "Message must be at least 10 characters long",
-    })
-    .max(500, {
-      message: "Message must be at most 500 characters long",
-    }),
-});
+const resend = new Resend(environmentVariables().RESEND_API_KEY);
 
-export type ContactFormType = z.infer<typeof contactFormSchema>;
+export async function contactFormAction(formData: unknown) {
+  const parsedFormData = ContactFormSchema.safeParse(formData);
 
-export async function contactFormAction() {}
+  if (!parsedFormData.success) {
+    return {
+      error: parsedFormData.error.flatten().fieldErrors,
+    };
+  }
+
+  const { data } = parsedFormData;
+  /*
+  resend.emails.send({
+    from: "onboarding@resend.dev",
+    to: "ecouto93@gmail.com",
+    subject: "Hello World",
+    html: "<p>Congrats on sending your <strong>first email</strong>!</p>",
+  }); */
+
+  return {
+    message: "Successful sent email",
+  };
+}

@@ -1,6 +1,6 @@
-import LandingPageContactSection from "@/components/features/LandingPage/contactSection";
-import LandingPageHero from "@/components/features/LandingPage/hero";
-import LandingPageProfessionalExperience from "@/components/features/LandingPage/professionalExperience";
+import LandingPageContactSection from "@/components/features/landingPage/contactSection";
+import LandingPageHero from "@/components/features/landingPage/hero";
+import LandingPageProfessionalExperience from "@/components/features/landingPage/professionalExperience";
 import Container from "@/components/shared/container";
 
 export default function Home() {
