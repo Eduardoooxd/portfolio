@@ -1,16 +1,13 @@
-import LandingPageContactSection from "@/components/features/landingPage/contactSection";
-import LandingPageHero from "@/components/features/landingPage/hero";
-import LandingPageProfessionalExperience from "@/components/features/landingPage/professionalExperience";
-import Container from "@/components/shared/container";
+import AboutMe from '@/components/about-me';
+import Hero from '@/components/hero';
+import SectionDivider from '@/components/section-divider';
 
 export default function Home() {
   return (
-    <main className="flex justify-center items-center grow w-full h-full body-background-texture ">
-      <Container className="py-0">
-        <LandingPageHero />
-        <LandingPageProfessionalExperience />
-        <LandingPageContactSection />
-      </Container>
+    <main className="body-background-texture flex h-full w-full grow flex-col items-center justify-center px-4 pt-28 sm:pt-36">
+      <Hero />
+      <SectionDivider />
+      <AboutMe />
     </main>
   );
 }
