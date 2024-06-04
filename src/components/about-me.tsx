@@ -4,7 +4,20 @@ import SectionHeading from './section-heading';
 
 export default function AboutMe() {
   return (
-    <motion.section className="mb-28 max-w-3xl text-center leading-8 sm:mb-40">
+    <motion.section
+      className="mb-28 max-w-3xl text-center leading-8 sm:mb-40"
+      initial={{
+        opacity: 0,
+        y: 150,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        delay: 0.225,
+      }}
+    >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-4">
         After graduating with a degree in{' '}
