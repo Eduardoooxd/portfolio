@@ -16,10 +16,9 @@ export default function AboutMe() {
         figuring out a solution to a complex problem. My core stack includes{' '}
         <span className="font-medium">Java, React, Angular, Quarkus, and Postgres</span>. I am also
         proficient in AWS, Terraform, and Kubernetes. I am always looking to learn new technologies
-        and continuously improve my skills.
-        <br />I am always open for new challenges and{' '}
-        <span className="font-medium">full-time position</span> as a{' '}
-        <span className="font-medium">full-stack</span> software developer.
+        and continuously improve my skills. I am currently open to{' '}
+        <span className="font-medium">collaboration and new projects</span> in the field of software
+        development.
       </p>
 
       <p>

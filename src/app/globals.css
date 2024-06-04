@@ -81,7 +81,7 @@
   }
 
   .min-dh-screen-without-nav {
-    --nav-height: 4.75rem;
+    --nav-height: 4.5rem;
 
     min-height: calc(100vh - var(--nav-height));
     min-height: calc(100svh - var(--nav-height));
