@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils';
+
 interface CodeIconProps {
   className?: string;
 }
@@ -15,7 +17,7 @@ export default function CodeIcon({ className, ...props }: CodeIconProps) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-6 w-6"
+      className={cn('h-6 w-6', className)}
       data-id="4"
     >
       <polyline points="16 18 22 12 16 6"></polyline>
