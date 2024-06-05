@@ -1,7 +1,7 @@
 'use client';
 
-import EduardoImage from '@/assets/images/eduardo_couto.jpg';
 import { contactInformation } from '@/lib/data';
+import EduardoImage from '@/public/eduardo_couto.jpg';
 import { motion } from 'framer-motion';
 import { ArrowDownToLine, ArrowUpRight, Github, Linkedin } from 'lucide-react';
 import Image from 'next/image';
@@ -14,7 +14,7 @@ export default function Hero() {
   const { linkedin, github } = contactInformation;
 
   return (
-    <section className="min-dh-screen-without-nav flex flex-col justify-evenly gap-8 sm:min-h-[initial] sm:justify-normal">
+    <section className="min-dh-screen-without-nav flex flex-col justify-evenly gap-2 sm:min-h-[initial] sm:justify-normal sm:gap-8">
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div

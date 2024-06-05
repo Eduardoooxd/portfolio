@@ -1,5 +1,6 @@
 import AboutMe from '@/components/about-me';
 import Hero from '@/components/hero';
+import Projects from '@/components/projects';
 import SectionDivider from '@/components/section-divider';
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <SectionDivider />
       <AboutMe />
+      <Projects />
     </main>
   );
 }

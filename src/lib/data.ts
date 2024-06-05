@@ -1,5 +1,10 @@
+import antiRecursoImage from '@/public/antirecurso.png';
+import aquapharmaImage from '@/public/aquapharma.png';
+import delfimMaiaImage from '@/public/delfim_maia.png';
+import orunImage from '@/public/orun.png';
 import { Binary, BookOpenCheck, GraduationCap } from 'lucide-react';
 import { Metadata } from 'next';
+import { StaticImageData } from 'next/image';
 import React from 'react';
 
 export const contactInformation = {
@@ -86,27 +91,46 @@ export const experiencesData = [
   },
 ] as const;
 
-export const projectsData = [
+export interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  imageUrl: StaticImageData;
+  href: string;
+}
+
+export const projectsData: Project[] = [
   {
-    title: 'CorpComment',
+    title: 'Aquapharma',
     description:
       'I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.',
-    tags: ['React', 'Next.js', 'MongoDB', 'Tailwind', 'Prisma'],
-    //imageUrl: corpcommentImg,
+    tags: ['React', 'Next.js', 'MySQL', 'Tailwind', 'Prisma'],
+    imageUrl: aquapharmaImage,
+    href: 'https://aquapharma.net',
   },
   {
-    title: 'rmtDev',
+    title: 'Delfim Maia',
+    description:
+      'I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.',
+    tags: ['React', 'Next.js', 'MySQL', 'Tailwind', 'Prisma'],
+    imageUrl: delfimMaiaImage,
+    href: 'https://www.delfimmaia.pt',
+  },
+  {
+    title: 'AntiRecurso',
+    description:
+      'I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.',
+    tags: ['React', 'Next.js', 'MySQL', 'Tailwind', 'Prisma'],
+    imageUrl: antiRecursoImage,
+    href: 'https://antirecurso.nei-isep.org',
+  },
+  {
+    title: 'Orun',
     description:
       'Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.',
     tags: ['React', 'TypeScript', 'Next.js', 'Tailwind', 'Redux'],
-    //imageUrl: rmtdevImg,
-  },
-  {
-    title: 'Word Analytics',
-    description:
-      'A public web app for quick analytics on text. It shows word count, character count and social media post limits.',
-    tags: ['React', 'Next.js', 'SQL', 'Tailwind', 'Framer'],
-    //imageUrl: wordanalyticsImg,
+    imageUrl: orunImage,
+    href: 'https://orun-clothes-shop-eduardoooxd.vercel.app/pt',
   },
 ] as const;
 
