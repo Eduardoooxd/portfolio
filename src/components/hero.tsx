@@ -2,9 +2,9 @@
 
 import EduardoImage from '@/assets/images/eduardo_couto.jpg';
 import { contactInformation } from '@/lib/data';
-import Image from 'Next/Image';
 import { motion } from 'framer-motion';
 import { ArrowDownToLine, ArrowUpRight, Github, Linkedin } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './shared/button';
 
