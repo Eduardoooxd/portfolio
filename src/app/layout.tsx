@@ -15,7 +15,7 @@ export const metadata = WEBSITE_METADATA;
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className="h-full overflow-x-hidden">
+    <html lang="en" className="h-full overflow-x-hidden !scroll-smooth">
       <body className={cn('flex min-h-full flex-col bg-background antialiased', inter.className)}>
         {/* TODO: Find better background */}
         <div className="absolute right-[11rem] top-[-6rem] -z-10 h-[31.25rem] w-[31.25rem] rounded-full bg-[#fbe2e3] blur-[10rem] dark:bg-[#946263] sm:w-[68.75rem]"></div>

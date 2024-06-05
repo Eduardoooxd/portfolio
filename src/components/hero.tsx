@@ -14,7 +14,10 @@ export default function Hero() {
   const { linkedin, github } = contactInformation;
 
   return (
-    <section className="min-dh-screen-without-nav flex flex-col justify-evenly gap-2 sm:min-h-[initial] sm:justify-normal sm:gap-8">
+    <section
+      id="home"
+      className="min-dh-screen-without-nav flex scroll-mt-[9999px] flex-col justify-evenly gap-2 sm:min-h-[initial] sm:justify-normal sm:gap-8"
+    >
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div

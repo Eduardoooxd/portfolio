@@ -4,7 +4,7 @@ import SectionHeading from './section-heading';
 
 export default function Projects() {
   return (
-    <section>
+    <section id="projects" className="scroll-mt-28">
       <SectionHeading>My projects</SectionHeading>
       <div className="flex flex-col gap-4 sm:gap-8">
         {projectsData.map((project) => (
