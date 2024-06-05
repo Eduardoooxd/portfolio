@@ -1,27 +1,19 @@
 'use client';
 
-import { useActiveSectionContext } from '@/context/active-section-context';
 import { contactInformation } from '@/lib/data';
+import { useSectionInView } from '@/lib/hooks';
 import EduardoImage from '@/public/eduardo_couto.jpg';
 import { motion } from 'framer-motion';
 import { ArrowDownToLine, ArrowUpRight, Github, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
 import { Button } from './shared/button';
 
 export default function Hero() {
-  const { setActive } = useActiveSectionContext();
-  const { ref, inView } = useInView({
-    threshold: 0.5,
+  const { ref } = useSectionInView({
+    sectionName: 'Home',
+    useInViewThreshold: 0.5,
   });
-
-  useEffect(() => {
-    if (inView) {
-      setActive('Home');
-    }
-  }, [inView, setActive]);
 
   const begginingYearOfCarrer = 2022;
   const carrerYears = new Date().getFullYear() - begginingYearOfCarrer;

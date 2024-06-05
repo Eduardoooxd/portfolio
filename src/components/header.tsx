@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function Header() {
-  const { activeSection, setActive } = useActiveSectionContext();
+  const { activeSection, setActive, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
     <header className="relative z-[999]">
@@ -31,7 +31,10 @@ export default function Header() {
                   'flex w-full items-center justify-center px-3 py-1 transition hover:text-gray-950 sm:py-2',
                   activeSection === name && 'text-gray-950',
                 )}
-                onClick={() => setActive(name)}
+                onClick={() => {
+                  setActive(name);
+                  setTimeOfLastClick(Date.now());
+                }}
               >
                 {name}
                 {activeSection === name ? (
