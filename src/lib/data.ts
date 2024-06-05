@@ -1,7 +1,7 @@
-import antiRecursoImage from '@/public/antirecurso.png';
-import aquapharmaImage from '@/public/aquapharma.png';
-import delfimMaiaImage from '@/public/delfim_maia.png';
-import orunImage from '@/public/orun.png';
+import antiRecursoImage from '@/public/antirecurso.webp';
+import aquapharmaImage from '@/public/aquapharma.webp';
+import delfimMaiaImage from '@/public/delfim_maia.webp';
+import orunImage from '@/public/orun.webp';
 import { Binary, BookOpenCheck, GraduationCap } from 'lucide-react';
 import { Metadata } from 'next';
 import { StaticImageData } from 'next/image';

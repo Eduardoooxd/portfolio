@@ -33,7 +33,7 @@ export default function ProjectShowcase({ project }: ProjectShowcaseProps) {
     >
       <article
         ref={containerRef}
-        className="relative max-w-2xl overflow-hidden rounded-lg border border-black/5 bg-gray-100 transition hover:bg-gray-200 sm:h-[20rem] sm:pr-8 sm:group-even:pl-8"
+        className="relative max-w-2xl overflow-hidden rounded-lg border border-black/5 bg-gray-100 transition hover:bg-gray-200 sm:h-72 sm:pr-8 sm:group-even:pl-8"
       >
         <a href={href} target="_blank">
           <div className="flex h-full flex-col px-5 pb-7 pt-4 sm:max-w-[50%] sm:pl-10 sm:pr-2 sm:pt-10 sm:group-even:ml-[18rem]">
