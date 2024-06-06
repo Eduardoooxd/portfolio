@@ -60,7 +60,7 @@ export const links = [
   {
     name: 'Contact',
     hash: '#contact',
-    href: '/contact',
+    href: '#contact',
   },
 ] as const;
 

@@ -4,7 +4,9 @@ import { ContactFormSchema } from '@/domain/contactForm';
 import { environmentVariables } from '@/lib/environment';
 import { Resend } from 'resend';
 
-const resend = new Resend(environmentVariables().RESEND_API_KEY);
+const { RESEND_API_KEY, RESEND_FROM_EMAIL, RESEND_TO_EMAIL } = environmentVariables();
+
+const resend = new Resend(RESEND_API_KEY);
 
 export async function contactFormAction(formData: unknown) {
   const parsedFormData = ContactFormSchema.safeParse(formData);
@@ -16,14 +18,21 @@ export async function contactFormAction(formData: unknown) {
   }
 
   const { data } = parsedFormData;
-  resend.emails.send({
-    from: 'onboarding@resend.dev',
-    to: 'ecouto93@gmail.com',
-    subject: JSON.stringify(data),
-    html: '<p>Congrats on sending your <strong>first email</strong>!</p>',
-  });
 
-  return {
-    message: 'Successful sent email',
-  };
+  try {
+    const response = await resend.emails.send({
+      from: RESEND_FROM_EMAIL,
+      to: RESEND_TO_EMAIL,
+      subject: 'Message from Contact Form 🔥',
+      html: JSON.stringify(data),
+    });
+
+    return {
+      response,
+    };
+  } catch (error: unknown) {
+    return {
+      error,
+    };
+  }
 }

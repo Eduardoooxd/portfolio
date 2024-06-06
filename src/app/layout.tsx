@@ -1,5 +1,6 @@
 import Footer from '@/components/footer';
 import Header from '@/components/header';
+import { Toaster } from '@/components/shared/toaster';
 import ActiveSectionProvider from '@/context/active-section-context';
 import { WEBSITE_METADATA } from '@/lib/data';
 import { cn } from '@/lib/utils';
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Header />
           {children}
           <Footer />
+          <Toaster />
         </ActiveSectionProvider>
       </body>
     </html>

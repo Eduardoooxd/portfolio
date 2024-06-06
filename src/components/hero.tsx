@@ -106,7 +106,7 @@ export default function Hero() {
           className="group rounded-full bg-gray-950 shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-100"
           asChild
         >
-          <Link className="flex items-center gap-1" href="/contact">
+          <Link className="flex items-center gap-1" href="#contact">
             Contact me here
             <ArrowUpRight />
           </Link>
