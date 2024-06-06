@@ -71,6 +71,10 @@
     @apply border-border;
   }
 
+  html {
+    --line-color: #e5e7eb;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
