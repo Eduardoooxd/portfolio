@@ -5,10 +5,10 @@ import { SectionName } from './types';
 
 interface SectionInViewProps {
   sectionName: SectionName;
-  useInViewThreshold: number;
+  useInViewThreshold?: number;
 }
 
-export function useSectionInView({ sectionName, useInViewThreshold }: SectionInViewProps) {
+export function useSectionInView({ sectionName, useInViewThreshold = 0.75 }: SectionInViewProps) {
   const { setActive, timeOfLastClick } = useActiveSectionContext();
   const { ref, inView } = useInView({
     threshold: useInViewThreshold,
