@@ -13,7 +13,7 @@ export default function ContactSection() {
     <section ref={ref} id="contact" className="w-[min(100%,38rem)] scroll-mt-28">
       <SectionHeading>Contact Me</SectionHeading>
       <div className="flex flex-col gap-4">
-        <p className="text-center">
+        <p className="sm:text-center">
           Contact me directly at {''}
           <a target="_blank" href="mailto:contacts@eduardocouto.dev" className="underline">
             contacts@eduardocouto.dev

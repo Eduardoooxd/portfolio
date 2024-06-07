@@ -6,14 +6,13 @@ import { Input } from '@/components/shared/input';
 import { Textarea } from '@/components/shared/textarea';
 import { ContactFormSchema, ContactFormType } from '@/domain/contactForm';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Send } from 'lucide-react';
+import { Loader2, Send } from 'lucide-react';
 import { useTransition } from 'react';
-import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { useToast } from './shared/use-toast';
 
 export default function ContactSectionForm() {
-  const [_, startTransition] = useTransition();
+  const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
   const form = useForm<ContactFormType>({
@@ -88,23 +87,28 @@ export default function ContactSectionForm() {
           )}
         />
 
-        <ContactSectionSubmitButton />
+        <ContactSectionSubmitButton isPending={isPending} />
       </form>
     </Form>
   );
 }
 
-function ContactSectionSubmitButton() {
-  const { pending } = useFormStatus();
-  // TODO FIX THIS
+interface ContactSectionSubmitButtonProps {
+  isPending: boolean;
+}
 
+function ContactSectionSubmitButton({ isPending }: ContactSectionSubmitButtonProps) {
   return (
     <Button
+      disabled={isPending}
       className="group inline-flex w-fit gap-1 rounded-full px-6 hover:scale-105 focus:scale-105 active:scale-100"
       type="submit"
     >
-      {pending ? (
-        <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"> caralho</div>
+      {isPending ? (
+        <>
+          Please wait
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        </>
       ) : (
         <>
           <span className="items-center justify-center font-medium">Submit</span>
