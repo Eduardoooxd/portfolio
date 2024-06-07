@@ -1,5 +1,6 @@
 'use client';
 
+import { useActiveSectionContext } from '@/context/active-section-context';
 import { contactInformation } from '@/lib/data';
 import { useSectionInView } from '@/lib/hooks';
 import EduardoImage from '@/public/eduardo_couto.jpg';
@@ -14,6 +15,8 @@ export default function Hero() {
     sectionName: 'Home',
     useInViewThreshold: 0.5,
   });
+
+  const { setActive, setTimeOfLastClick } = useActiveSectionContext();
 
   const begginingYearOfCarrer = 2022;
   const carrerYears = new Date().getFullYear() - begginingYearOfCarrer;
@@ -106,7 +109,14 @@ export default function Hero() {
           className="group rounded-full bg-gray-950 shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-100"
           asChild
         >
-          <Link className="flex items-center gap-1" href="#contact">
+          <Link
+            className="flex items-center gap-1"
+            href="#contact"
+            onClick={() => {
+              setActive('Contact');
+              setTimeOfLastClick(Date.now());
+            }}
+          >
             Contact me here
             <ArrowUpRight />
           </Link>
