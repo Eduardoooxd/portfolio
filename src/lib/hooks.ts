@@ -6,12 +6,18 @@ import { SectionName } from './types';
 interface SectionInViewProps {
   sectionName: SectionName;
   useInViewThreshold?: number;
+  triggerOnce?: boolean;
 }
 
-export function useSectionInView({ sectionName, useInViewThreshold = 0.75 }: SectionInViewProps) {
+export function useSectionInView({
+  sectionName,
+  useInViewThreshold = 0.75,
+  triggerOnce = false,
+}: SectionInViewProps) {
   const { setActive, timeOfLastClick } = useActiveSectionContext();
   const { ref, inView } = useInView({
     threshold: useInViewThreshold,
+    triggerOnce,
   });
 
   useEffect(() => {
@@ -20,5 +26,5 @@ export function useSectionInView({ sectionName, useInViewThreshold = 0.75 }: Sec
     }
   }, [inView, setActive, timeOfLastClick, sectionName]);
 
-  return { ref };
+  return { ref, inView };
 }

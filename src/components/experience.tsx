@@ -6,8 +6,9 @@ import 'react-vertical-timeline-component/style.min.css';
 import SectionHeading from './section-heading';
 
 export default function Experience() {
-  const { ref } = useSectionInView({
+  const { ref, inView } = useSectionInView({
     sectionName: 'Experience',
+    triggerOnce: true,
   });
 
   return (
@@ -18,7 +19,6 @@ export default function Experience() {
         {experiencesData.map(({ title, location, date, description, icon }, index) => (
           <VerticalTimelineElement
             key={index}
-            visible
             contentStyle={{
               background: '#f3f4f6',
               boxShadow: 'none',
@@ -30,6 +30,7 @@ export default function Experience() {
             date={date}
             icon={icon}
             iconStyle={{ background: 'white', fontSize: '1.5rem' }}
+            visible={inView}
           >
             <h3 className="font-semibold capitalize">{title}</h3>
             <p className="!mt-0 font-normal">{location}</p>
