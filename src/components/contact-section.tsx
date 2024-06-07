@@ -1,6 +1,7 @@
 'use client';
 
 import { useSectionInView } from '@/lib/hooks';
+import { motion } from 'framer-motion';
 import ContactSectionForm from './contact-section-form';
 import SectionHeading from './section-heading';
 
@@ -10,7 +11,21 @@ export default function ContactSection() {
   });
 
   return (
-    <section ref={ref} id="contact" className="w-[min(100%,38rem)] scroll-mt-28">
+    <motion.section
+      ref={ref}
+      id="contact"
+      className="w-[min(100%,38rem)] scroll-mt-28"
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
+      transition={{
+        duration: 1,
+      }}
+      viewport={{ once: true }}
+    >
       <SectionHeading>Contact Me</SectionHeading>
       <div className="flex flex-col gap-4">
         <p className="sm:text-center">
@@ -23,6 +38,6 @@ export default function ContactSection() {
 
         <ContactSectionForm />
       </div>
-    </section>
+    </motion.section>
   );
 }
