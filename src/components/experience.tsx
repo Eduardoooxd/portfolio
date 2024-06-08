@@ -1,4 +1,5 @@
 'use client';
+import { useThemeContext } from '@/context/theme-context';
 import { experiencesData } from '@/lib/data';
 import { useSectionInView } from '@/lib/hooks';
 import { useInView } from 'react-intersection-observer';
@@ -16,6 +17,8 @@ export default function Experience() {
     triggerOnce: true,
   });
 
+  const { theme } = useThemeContext();
+
   return (
     <section id="experience" ref={ref} className="scroll-mt-28">
       <SectionHeading>My Experience</SectionHeading>
@@ -26,21 +29,29 @@ export default function Experience() {
             <VerticalTimelineElement
               key={index}
               contentStyle={{
-                background: '#f3f4f6',
+                background: theme === 'light' ? '#f3f4f6' : 'rgba(255, 255, 255, 0.05)',
                 boxShadow: 'none',
                 border: '1px solid rgba(0, 0, 0, 0.05)',
                 textAlign: 'left',
                 padding: '1.3rem 2rem',
               }}
-              contentArrowStyle={{ borderRight: '0.4rem solid #9ca3af' }}
+              contentArrowStyle={{
+                borderRight:
+                  theme === 'light'
+                    ? '0.4rem solid #9ca3af'
+                    : '0.4rem solid rgba(255, 255, 255, 0.5)',
+              }}
               date={date}
               icon={icon}
-              iconStyle={{ background: 'white', fontSize: '1.5rem' }}
+              iconStyle={{
+                background: theme === 'light' ? 'white' : 'rgba(55, 65, 81, 1)',
+                fontSize: '1.5rem',
+              }}
               visible={timelineInView}
             >
               <h3 className="font-semibold capitalize">{title}</h3>
               <p className="!mt-0 font-normal">{location}</p>
-              <p className="!mt-1 !font-normal text-gray-700">{description}</p>
+              <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">{description}</p>
             </VerticalTimelineElement>
           ))}
         </VerticalTimeline>

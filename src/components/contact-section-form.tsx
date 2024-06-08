@@ -1,10 +1,10 @@
 'use client';
-import { contactFormAction } from '@/actions/contactFormAction';
+import { contactFormAction } from '@/actions/contact-form-action';
 import { Button } from '@/components/shared/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/shared/form';
 import { Input } from '@/components/shared/input';
 import { Textarea } from '@/components/shared/textarea';
-import { ContactFormSchema, ContactFormType } from '@/domain/contactForm';
+import { ContactFormSchema, ContactFormType } from '@/domain/contact-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Send } from 'lucide-react';
 import { useTransition } from 'react';
@@ -101,7 +101,7 @@ function ContactSectionSubmitButton({ isPending }: ContactSectionSubmitButtonPro
   return (
     <Button
       disabled={isPending}
-      className="group inline-flex w-fit gap-1 rounded-full px-6 hover:scale-105 focus:scale-105 active:scale-100"
+      className="group inline-flex w-fit gap-1 rounded-full px-6 hover:scale-105 focus:scale-105 active:scale-95"
       type="submit"
     >
       {isPending ? (

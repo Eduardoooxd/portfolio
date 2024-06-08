@@ -1,6 +1,6 @@
 'use server';
 
-import { ContactFormSchema } from '@/domain/contactForm';
+import { ContactFormSchema } from '@/domain/contact-form';
 import ContactFormEmail from '@/email/contact-form-email';
 import { environmentVariables } from '@/lib/environment';
 import { waitTime } from '@/lib/utils';

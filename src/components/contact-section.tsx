@@ -29,7 +29,7 @@ export default function ContactSection() {
       <SectionHeading>Contact Me</SectionHeading>
       <div className="flex flex-col gap-4">
         <p className="sm:text-center">
-          Contact me directly at {''}
+          Contact me at {''}
           <a target="_blank" href="mailto:contacts@eduardocouto.dev" className="underline">
             contacts@eduardocouto.dev
           </a>

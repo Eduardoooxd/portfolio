@@ -106,7 +106,7 @@ export default function Hero() {
         }}
       >
         <Button
-          className="group rounded-full bg-gray-950 shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-100"
+          className="group rounded-full shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-95"
           asChild
         >
           <Link
@@ -124,7 +124,7 @@ export default function Hero() {
 
         <Button
           variant="secondary"
-          className="rounded-full shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-100"
+          className="rounded-full shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-95"
           asChild
         >
           <a className="flex items-center gap-1" href="/eduardo_couto_resume.pdf" download>
@@ -136,7 +136,7 @@ export default function Hero() {
         <div className="flex items-center gap-4">
           <Button
             variant="secondary"
-            className="rounded-full shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-100"
+            className="rounded-full shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-95"
             asChild
           >
             <a target="_blank" href={linkedin}>
@@ -146,7 +146,7 @@ export default function Hero() {
 
           <Button
             variant="secondary"
-            className="rounded-full shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-100"
+            className="rounded-full shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-95"
             asChild
           >
             <a target="_blank" href={github}>
