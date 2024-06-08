@@ -1,10 +1,10 @@
-import Footer from '@/components/footer';
 import Header from '@/components/header';
 import { Toaster } from '@/components/shared/toaster';
 import ActiveSectionProvider from '@/context/active-section-context';
 import { WEBSITE_METADATA } from '@/lib/data';
 import { cn } from '@/lib/utils';
 import { Inter } from 'next/font/google';
+import Footer from '../components';
 import './globals.css';
 
 interface RootLayoutProps {
