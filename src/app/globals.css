@@ -82,6 +82,13 @@
     @apply bg-background text-foreground;
   }
 
+  .bg-background-workout {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+  }
+
   .min-dh-screen {
     @apply min-h-screen;
     min-height: 100svh;
