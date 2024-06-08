@@ -67,7 +67,7 @@ export default function ContactSectionForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Your email" {...field} />
+                <Input type="email" placeholder="Your email" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
