@@ -4,7 +4,7 @@ import ActiveSectionProvider from '@/context/active-section-context';
 import { WEBSITE_METADATA } from '@/lib/data';
 import { cn } from '@/lib/utils';
 import { Inter } from 'next/font/google';
-import Footer from '../components';
+import Footer from '../components/footer';
 import './globals.css';
 
 interface RootLayoutProps {
