@@ -126,7 +126,7 @@ export default function MobileHeader() {
                       <Link
                         href={href}
                         className={cn(
-                          'flex w-full items-center justify-center px-3 py-2 text-3xl uppercase transition hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-200',
+                          'flex w-full items-center justify-center px-3 py-2 text-3xl capitalize transition hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-200',
                           activeSection === name && 'text-gray-950 dark:text-gray-200',
                         )}
                         onClick={() => {
@@ -138,7 +138,7 @@ export default function MobileHeader() {
                         {name}
                         {activeSection === name ? (
                           <motion.span
-                            className="absolute inset-0 -z-10 rounded-md bg-gray-100 px-2 py-1 dark:bg-gray-800"
+                            className="absolute inset-0 -z-10 rounded-lg bg-gray-100 px-2 py-1 dark:bg-gray-800"
                             layoutId="activeSection"
                             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                           ></motion.span>
