@@ -90,7 +90,7 @@ export default function MobileHeader() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed left-0 top-0 h-screen w-full origin-top bg-white dark:bg-gray-950"
+            className="fixed left-0 top-0 h-screen w-full origin-top bg-background"
             initial={{ scaleY: 0 }}
             animate={{
               scaleY: 1,
