@@ -12,8 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
+      - name: Install pnpm ${{ vars.PNPM_VERSION }}
         uses: pnpm/action-setup@v4
+        with:
+          version: ${{ vars.PNPM_VERSION }}
 
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v4
