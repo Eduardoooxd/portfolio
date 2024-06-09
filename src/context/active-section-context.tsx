@@ -17,7 +17,7 @@ interface ActiveSectionContextType {
 const ActiveSectionContext = createContext<ActiveSectionContextType | null>(null);
 
 export default function ActiveSectionProvider({ children }: ActiveSectionProviderProps) {
-  const [activeSection, setActive] = useState<SectionName>('Home');
+  const [activeSection, setActive] = useState<SectionName>(null);
   // This state is used to prevent the active section from changing when the user clicks on a link
   const [timeOfLastClick, setTimeOfLastClick] = useState<number>(0);
 
