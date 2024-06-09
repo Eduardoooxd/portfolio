@@ -73,7 +73,9 @@ export default function Hero() {
         </div>
       </div>
 
-      <motion.h1
+      <h1 className="hidden">Eduardo Couto</h1>
+
+      <motion.h2
         className="mx-auto max-w-3xl px-4 text-center text-2xl font-medium !leading-10 sm:text-4xl"
         initial={{
           opacity: 0,
@@ -89,7 +91,7 @@ export default function Hero() {
         <span className="font-bold">{carrerYears} years </span> of experience. I enjoy building
         <span className="italic">websites & applications</span>. My main focus is with{' '}
         <span className="underline">Java and React (Next.js).</span>
-      </motion.h1>
+      </motion.h2>
 
       <motion.div
         className="flex flex-col gap-4 text-lg font-medium sm:flex-row sm:justify-center"

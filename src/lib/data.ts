@@ -15,10 +15,12 @@ export const contactInformation = {
   github: 'https://github.com/Eduardoooxd',
 } as const;
 
+export const baseUrl = 'https://eduardocouto.dev';
+
 export const WEBSITE_METADATA: Metadata = {
   title: 'Eduardo Couto | Personal Portfolio',
   description:
-    'I am a versatile full-stack software developer with a passion for creating innovative and user-friendly applications. With over 2 years of experience, I have honed my skills in Java, Typescript, AWS, React, Terraform, Node.js, and various backend technologies. I am dedicated to delivering high-quality, scalable, and maintainable solutions that solve real-world problems.',
+    'I am a versatile full-stack software developer with over 2 years of experience, I have honed my skills in Java, Typescript, AWS, React, Terraform, Node.js, and various backend technologies. I am dedicated to delivering high-quality, scalable, and maintainable solutions that solve real-world problems.',
   applicationName: 'Eduardo Couto Personal Portfolio',
   creator: 'Eduardo Couto',
   authors: [
