@@ -111,6 +111,9 @@ importers:
       husky:
         specifier: ^9.0.11
         version: 9.0.11
+      playwright-ctrf-json-reporter:
+        specifier: ^0.0.14
+        version: 0.0.14
       postcss:
         specifier: ^8
         version: 8.4.38
@@ -2301,6 +2304,9 @@ packages:
     resolution: {integrity: sha512-wh0JWtYTrhv1+OSsLPgFzGzt67Y7BE/ZS3jEqgGBlp2ppp1ZDj8c+9IARNW4dwf1poq5MgHreEM2KV/GuR4cFA==}
     engines: {node: '>=16'}
     hasBin: true
+
+  playwright-ctrf-json-reporter@0.0.14:
+    resolution: {integrity: sha512-rfUdvQtvaConfv5/+S5xSYyE3c/kthbxtk88j7vlvx/jG1kWrtDVmPaIOsWJCEcDirX0AS46fxGy660/ZJ9N+Q==}
 
   playwright@1.44.1:
     resolution: {integrity: sha512-qr/0UJ5CFAtloI3avF95Y0L1xQo6r3LQArLIg/z/PoGJ6xa+EwzrwO5lpNr/09STxdHuUoP2mvuELJS+hLdtgg==}
@@ -5213,6 +5219,8 @@ snapshots:
   pirates@4.0.6: {}
 
   playwright-core@1.44.1: {}
+
+  playwright-ctrf-json-reporter@0.0.14: {}
 
   playwright@1.44.1:
     dependencies:
