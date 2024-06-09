@@ -59,7 +59,7 @@ export default function MobileHeader() {
   };
 
   return (
-    <header className="z-[100]">
+    <header className="z-[100]" data-testid="mobile-menu-container">
       <div className="fixed right-2 top-2 z-[110]">
         <AnimatePresence mode="wait">
           {isOpen ? (
@@ -69,7 +69,12 @@ export default function MobileHeader() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { delay: 0.5, duration: 0.5 } }} // Delay the exit to match the menu closing
             >
-              <Button variant="outline" size="icon" onClick={() => setIsOpen(false)}>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setIsOpen(false)}
+                data-testid="close-mobile-menu-button"
+              >
                 <X />
               </Button>
             </motion.div>
@@ -80,7 +85,12 @@ export default function MobileHeader() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.5 } }} // Delay the exit to match the menu opening
             >
-              <Button variant="outline" size="icon" onClick={() => setIsOpen(true)}>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setIsOpen(true)}
+                data-testid="open-mobile-menu-button"
+              >
                 <Menu />
               </Button>
             </motion.div>
@@ -91,6 +101,7 @@ export default function MobileHeader() {
         {isOpen && (
           <motion.div
             className="fixed left-0 top-0 h-screen w-full origin-top bg-background"
+            data-testid="mobile-menu-expanded"
             initial={{ scaleY: 0 }}
             animate={{
               scaleY: 1,
@@ -111,6 +122,7 @@ export default function MobileHeader() {
             <nav className="flex h-full flex-col">
               <motion.ul
                 className="flex h-full flex-col items-center justify-center gap-6 text-gray-500"
+                data-testid="mobile-menu-expanded-options-container"
                 variants={containerVars}
                 initial="initial"
                 animate="open"
