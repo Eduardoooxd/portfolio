@@ -54,7 +54,12 @@ export default function ContactSectionForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Your name" {...field} />
+                <Input
+                  type="text"
+                  placeholder="Your name"
+                  {...field}
+                  data-testid="contact-name-input"
+                />
               </FormControl>
               <FormMessage data-testid="invalid-name-warning" />
             </FormItem>
@@ -67,7 +72,12 @@ export default function ContactSectionForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input type="email" placeholder="Your email" {...field} />
+                <Input
+                  type="email"
+                  placeholder="Your email"
+                  {...field}
+                  data-testid="contact-email-input"
+                />
               </FormControl>
               <FormMessage data-testid="invalid-email-warning" />
             </FormItem>
@@ -80,7 +90,11 @@ export default function ContactSectionForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Textarea placeholder="Your message" {...field} />
+                <Textarea
+                  placeholder="Your message"
+                  {...field}
+                  data-testid="contact-message-input"
+                />
               </FormControl>
               <FormMessage data-testid="invalid-message-warning" />
             </FormItem>

@@ -29,6 +29,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
@@ -46,6 +48,21 @@ export default defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
+    },
+
+    {
+      name: 'Mobile Iphone SE',
+      use: devices['iPhone SE'],
+    },
+
+    {
+      name: 'Mobile Iphone 13 Pro',
+      use: devices['iPhone 13 Pro'],
+    },
+
+    {
+      name: 'Mobile Android',
+      use: devices['Pixel 5'],
     },
   ],
 

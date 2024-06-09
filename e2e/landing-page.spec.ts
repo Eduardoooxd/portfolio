@@ -31,10 +31,12 @@ test.describe('Landing Page Tests', () => {
   test('Should submit the Contact form successfully', async ({ page }) => {
     // Navigate to the Contact section
     await page.goto('/#contact');
+
     // Fill the form
-    await page.fill('input[name="name"]', 'John Doe');
-    await page.fill('input[name="email"]', 'john.doe@example.com');
-    await page.fill('textarea[name="message"]', 'Hello, This is a test message.');
+    await page.getByTestId('contact-name-input').pressSequentially('John Doe');
+    await page.getByTestId('contact-email-input').fill('john.doe@example.com');
+    await page.getByTestId('contact-message-input').fill('Hello, This is a test message.');
+
     // Click the submit button
     await page.click('text=Submit');
 
@@ -47,10 +49,11 @@ test.describe('Landing Page Tests', () => {
   test('Should show the contact form errors', async ({ page }) => {
     // Navigate to the Contact section
     await page.goto('/#contact');
+
     // Fill the form
-    await page.fill('input[name="name"]', 'J');
-    await page.fill('input[name="email"]', 'john.doe@example.com');
-    await page.fill('textarea[name="message"]', '');
+    await page.getByTestId('contact-name-input').pressSequentially('J');
+    await page.getByTestId('contact-email-input').fill('john.doe@example.com');
+    await page.getByTestId('contact-message-input').fill('');
     // Click the submit button
     await page.click('text=Submit');
 
