@@ -26,7 +26,7 @@ export default function AboutMe() {
         delay: 0.225,
       }}
     >
-      <SectionHeading>About me</SectionHeading>
+      <SectionHeading dataTestId="about-heading">About me</SectionHeading>
       <p className="mb-4">
         After graduating with a degree in <span className="font-bold">Informatics Engineering</span>
         , I decided to pursue my passion for software development. I have gained extensive

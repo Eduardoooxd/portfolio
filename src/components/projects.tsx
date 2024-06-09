@@ -12,7 +12,7 @@ export default function Projects() {
 
   return (
     <section id="projects" ref={ref} className="scroll-mt-8 sm:scroll-mt-28">
-      <SectionHeading>My projects</SectionHeading>
+      <SectionHeading dataTestId="projects-heading">My projects</SectionHeading>
       <div className="flex flex-col gap-4 sm:gap-8">
         {projectsData.map((project) => (
           <ProjectShowcase key={project.title} project={project} />

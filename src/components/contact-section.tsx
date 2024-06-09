@@ -26,7 +26,7 @@ export default function ContactSection() {
       }}
       viewport={{ once: true }}
     >
-      <SectionHeading>Contact Me</SectionHeading>
+      <SectionHeading dataTestId="contact-heading">Contact Me</SectionHeading>
       <div className="flex flex-col gap-4">
         <p className="sm:text-center">
           Contact me at {''}

@@ -56,7 +56,7 @@ export default function ContactSectionForm() {
               <FormControl>
                 <Input placeholder="Your name" {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage data-testid="invalid-name-warning" />
             </FormItem>
           )}
         />
@@ -69,7 +69,7 @@ export default function ContactSectionForm() {
               <FormControl>
                 <Input type="email" placeholder="Your email" {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage data-testid="invalid-email-warning" />
             </FormItem>
           )}
         />
@@ -82,7 +82,7 @@ export default function ContactSectionForm() {
               <FormControl>
                 <Textarea placeholder="Your message" {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage data-testid="invalid-message-warning" />
             </FormItem>
           )}
         />

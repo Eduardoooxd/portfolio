@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "e2e:test": "playwright test",
+    "e2e:open": "playwright test --ui",
+    "e2e:codegen": "playwright codegen"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.4.2",
@@ -32,6 +35,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.44.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

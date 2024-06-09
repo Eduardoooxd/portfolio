@@ -29,7 +29,7 @@ export default function Skills() {
       className="max-w-[53rem] scroll-mt-8 text-center sm:scroll-mt-28"
       ref={ref}
     >
-      <SectionHeading>My Skills</SectionHeading>
+      <SectionHeading dataTestId="skills-heading">My Skills</SectionHeading>
       <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
         {skillsData.map((skill, index) => (
           <motion.li

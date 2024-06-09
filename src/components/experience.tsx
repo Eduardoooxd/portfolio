@@ -22,7 +22,7 @@ export default function Experience() {
 
   return (
     <section id="experience" ref={ref} className="scroll-mt-8 sm:scroll-mt-28">
-      <SectionHeading>My Experience</SectionHeading>
+      <SectionHeading dataTestId="experience-heading">My Experience</SectionHeading>
 
       <div ref={timelineInViewRef}>
         <VerticalTimeline lineColor="">

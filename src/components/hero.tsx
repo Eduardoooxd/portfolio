@@ -85,6 +85,7 @@ export default function Hero() {
           opacity: 1,
           y: 0,
         }}
+        data-testid="hero-message"
       >
         <span className="font-bold">Hello, I'm Eduardo.</span> I'm a{' '}
         <span className="font-bold">full-stack developer</span> with{' '}
