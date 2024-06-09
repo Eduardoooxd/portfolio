@@ -24,6 +24,11 @@ jobs:
 
       - name: Build Next Project
         run: pnpm build
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+          RESEND_TO_EMAIL: ${{ secrets.RESEND_TO_EMAIL }}
+          NODE_ENV: 'development'
 
       - name: Run Playwright tests
         run: pnpm e2e:test
