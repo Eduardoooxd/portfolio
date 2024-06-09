@@ -17,7 +17,10 @@ export default function DesktopHeader() {
       ></motion.div>
 
       <nav className="fixed left-1/2 flex w-3/4 -translate-x-1/2 items-center py-2 sm:top-6 sm:h-14 sm:w-[initial] sm:py-0">
-        <ul className="flex flex-wrap items-center justify-center text-sm text-gray-500 sm:flex-nowrap sm:gap-5">
+        <ul
+          className="flex flex-wrap items-center justify-center text-sm text-gray-500 sm:flex-nowrap sm:gap-5"
+          data-testid="desktop-menu-options-container"
+        >
           {links.map(({ name, hash, href }) => (
             <motion.li
               key={hash}
