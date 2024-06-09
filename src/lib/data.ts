@@ -1,8 +1,9 @@
+import { Experience } from '@/domain/experience';
 import antiRecursoImage from '@/public/antirecurso.webp';
 import aquapharmaImage from '@/public/aquapharma.webp';
 import delfimMaiaImage from '@/public/delfim_maia.webp';
 import orunImage from '@/public/orun.webp';
-import { Binary, BookOpenCheck, GraduationCap } from 'lucide-react';
+import { BookOpenCheck, GraduationCap, Laptop2, PersonStanding } from 'lucide-react';
 import { Metadata } from 'next';
 import { StaticImageData } from 'next/image';
 import React from 'react';
@@ -17,7 +18,7 @@ export const contactInformation = {
 export const WEBSITE_METADATA: Metadata = {
   title: 'Eduardo Couto | Personal Portfolio',
   description:
-    'I am a versatile full-stack software developer with a passion for creating innovative and user-friendly applications. With over 2 years of experience, I have honed my skills in Java, Typescript, React, Node.js, and various backend technologies. I am dedicated to delivering high-quality, scalable, and maintainable solutions that solve real-world problems.',
+    'I am a versatile full-stack software developer with a passion for creating innovative and user-friendly applications. With over 2 years of experience, I have honed my skills in Java, Typescript, AWS, React, Terraform, Node.js, and various backend technologies. I am dedicated to delivering high-quality, scalable, and maintainable solutions that solve real-world problems.',
   applicationName: 'Eduardo Couto Personal Portfolio',
   creator: 'Eduardo Couto',
   authors: [
@@ -27,8 +28,7 @@ export const WEBSITE_METADATA: Metadata = {
     },
   ],
 
-  generator:
-    'Next.js, Tailwind CSS, TypeScript, ESLint, Prettier, Jest, React Testing Library, and Husky',
+  generator: 'Next.js, Tailwind CSS, TypeScript, ESLint, Prettier, Jest, and Husky',
 };
 
 export const links = [
@@ -64,30 +64,67 @@ export const links = [
   },
 ] as const;
 
-export const experiencesData = [
+export const experiencesData: Experience[] = [
+  {
+    title: 'Full-Stack Software Developer',
+    location: 'Porto, Portugal 🇵🇹',
+    company: {
+      name: 'Critical Techworks',
+      website: 'https://www.criticaltechworks.com',
+    },
+    description:
+      'Delivering high-value features, optimizing codebases, and maintaining multiple microservices. Led the migration of multiple Java microservices to Quarkus, developed a high-availability notification system, and enhanced infrastructure using AWS and Terraform.',
+    icon: React.createElement(Laptop2),
+    date: 'Sep 2022 - Present',
+    skills: ['Java', 'Angular', 'AWS', 'Terraform', 'GitHub Actions'],
+  },
+  {
+    title: 'Freelancer Developer',
+    location: 'Porto, Portugal 🇵🇹',
+    description:
+      'Providing full-stack development services using React, Next.js, TypeScript, Tailwind, Prisma, and Content Management Systems. Successfully completed various projects including e-commerce integrations with Stripe and Shopify.',
+    icon: React.createElement(Laptop2),
+    date: '2020 - Present',
+    skills: ['React', 'Next.js', 'TypeScript', 'Stripe', 'Shopify'],
+  },
+  {
+    title: 'Software Developer Intern',
+    location: 'Porto, Portugal 🇵🇹',
+    company: {
+      name: 'Critical Techworks',
+      website: 'https://www.criticaltechworks.com',
+    },
+    description:
+      'Optimized front-end performance with Angular techniques and improved backend response times. Developed stress tests and leveraged Lighthouse reports for performance validation.',
+    icon: React.createElement(BookOpenCheck),
+    date: 'Feb 2022 - Sep 2022',
+    skills: ['Java', 'Angular', 'EclipseLink'],
+  },
+  {
+    title: 'IT Department Coordinator',
+    location: 'Porto, Portugal 🇵🇹',
+    company: {
+      name: 'NEI-ISEP',
+      website: 'https://www.nei-isep.org',
+    },
+    description:
+      'Led the IT department, managed development team, and upgraded tech stack. Provided mentorship and streamlined workflows to enhance project efficiency.',
+    icon: React.createElement(PersonStanding),
+    date: '2022',
+    skills: ['React', 'Next.js', 'TypeScript', 'WordPress'],
+  },
   {
     title: 'Graduated Informatics Engineering Degree',
-    location: 'Porto, Portugal',
+    location: 'Porto, Portugal 🇵🇹',
+    company: {
+      name: 'ISEP',
+      website: 'https://isep.ipp.pt',
+    },
     description:
-      'I graduated after 3 years of studying. I immediately found a job as a full-stack developer.',
+      'Studied topics like software engineering, databases, algorithms, and computer networks. Developed a final project about a Social Network using Java, C# and React.',
     icon: React.createElement(GraduationCap),
     date: '2022',
-  },
-  {
-    title: 'Front-End Developer',
-    location: 'Porto, Portugal',
-    description:
-      'I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.',
-    icon: React.createElement(BookOpenCheck),
-    date: '2019 - 2021',
-  },
-  {
-    title: 'Full-Stack Developer',
-    location: 'Porto, Portugal',
-    description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(Binary),
-    date: '2021 - present',
+    skills: ['Java', 'React', 'C#', 'C'],
   },
 ] as const;
 
@@ -103,55 +140,56 @@ export const projectsData: Project[] = [
   {
     title: 'Aquapharma',
     description:
-      'I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.',
-    tags: ['React', 'Next.js', 'MySQL', 'Tailwind', 'Prisma'],
+      'Implemented and deployed a responsive website using NextJs and Tailwind to showcase a health company portfolio and facilitate user contact submissions.',
+    tags: ['React', 'Next.js', 'Tailwind'],
     imageUrl: aquapharmaImage,
     href: 'https://aquapharma.net',
   },
   {
     title: 'Delfim Maia',
     description:
-      'I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.',
-    tags: ['React', 'Next.js', 'MySQL', 'Tailwind', 'Prisma'],
+      'Freelancing Project for a Lawyer Company. Website provides i18n and CMS for the client.',
+    tags: ['Astro', 'React', 'Builder.io', 'Tailwind'],
     imageUrl: delfimMaiaImage,
     href: 'https://www.delfimmaia.pt',
   },
   {
     title: 'AntiRecurso',
     description:
-      'I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.',
-    tags: ['React', 'Next.js', 'MySQL', 'Tailwind', 'Prisma'],
+      'Open source learning platform. Responsible for graphical representation of the students grades and dark mode support.',
+    tags: ['React', 'Next.js', 'Tailwind', 'Prisma', 'PostgreSQL'],
     imageUrl: antiRecursoImage,
     href: 'https://antirecurso.nei-isep.org',
   },
   {
     title: 'Orun',
     description:
-      'Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.',
-    tags: ['React', 'TypeScript', 'Next.js', 'Tailwind', 'Redux'],
+      'E-Commerce Website integrated with Shopify and i18n support. It has features like payments and newsletter.',
+    tags: ['React', 'Next.js', 'Shopify', 'GraphQL', 'Builder.io', 'MailChimp'],
     imageUrl: orunImage,
     href: 'https://orun-clothes-shop-eduardoooxd.vercel.app/pt',
   },
 ] as const;
 
 export const skillsData = [
-  'HTML',
-  'CSS',
-  'JavaScript',
   'TypeScript',
+  'Java',
+  'AWS',
+  'Quarkus',
+  'Terraform',
+  'Python',
+  'PostgreSQL',
+  'Kubernetes',
+  'GitHub Actions',
+  'Node.js',
+  'Express',
+  'JUnit',
+  'Jest',
+  'Cypress',
   'React',
   'Next.js',
-  'Node.js',
-  'Git',
+  'JavaScript',
   'Tailwind',
-  'Prisma',
-  'MongoDB',
-  'Redux',
-  'GraphQL',
-  'Apollo',
-  'Express',
+  'Angular',
   'PostgreSQL',
-  'Python',
-  'Django',
-  'Framer Motion',
 ] as const;
