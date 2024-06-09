@@ -24,6 +24,7 @@ jobs:
 
       - name: Build Next Project
         run: pnpm build
+        # Necessary for Build Time
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
@@ -31,6 +32,11 @@ jobs:
 
       - name: Run Playwright tests
         run: pnpm e2e:test
+        # Necessary for Run Time
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+          RESEND_TO_EMAIL: ${{ secrets.RESEND_TO_EMAIL }}
 
       - uses: actions/upload-artifact@v4
         if: always()
