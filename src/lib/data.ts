@@ -48,27 +48,27 @@ export const links = [
   {
     name: 'About',
     hash: '#about',
-    href: '#about',
+    href: '/#about',
   },
   {
     name: 'Projects',
     hash: '#projects',
-    href: '#projects',
+    href: '/#projects',
   },
   {
     name: 'Skills',
     hash: '#skills',
-    href: '#skills',
+    href: '/#skills',
   },
   {
     name: 'Experience',
     hash: '#experience',
-    href: '#experience',
+    href: '/#experience',
   },
   {
     name: 'Contact',
     hash: '#contact',
-    href: '#contact',
+    href: '/#contact',
   },
 ] as const;
 
