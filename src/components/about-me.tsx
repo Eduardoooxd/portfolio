@@ -33,18 +33,19 @@ export default function AboutMe() {
         experience in <span className="font-bold">full-stack development</span> through various
         roles and projects. <span className="italic">My favorite part of programming</span> is the
         problem-solving aspect. I <span className="underline">love</span> the feeling of finally
-        figuring out a solution to a complex problem. My core stack includes{' '}
+        figuring out a solution to a complex problem.
+      </p>
+
+      <p className="mb-4">
+        My core stack includes{' '}
         <span className="font-bold">Java, React, Angular, Quarkus, and Node.js</span>. I am also
         proficient in <span className="font-bold"> AWS, Terraform, and Kubernetes</span>. I am
-        always looking to learn new technologies and continuously improve my skills. I am currently
-        open to <span className="font-bold">collaboration and new projects</span> in the field of
-        software development.
+        always looking to learn new technologies and continuously improve my skills.
       </p>
 
       <p>
-        <span className="italic">When I'm not coding</span>, I enjoy playing video games (League of
-        Legends, R6, others...), listening to music, watching movies, and passing time with my
-        family.
+        I am currently open to <span className="font-bold">collaboration and new projects</span> in
+        the field of software development.
       </p>
     </motion.section>
   );
