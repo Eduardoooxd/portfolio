@@ -15,8 +15,8 @@ test.describe('404 Page Tests', () => {
 
     const redirectLink = page.getByTestId('redirect-home-link');
     expect(redirectLink).toBeTruthy();
-    expect(redirectLink).toContainText('Click here to go back home');
-    expect(redirectLink).toHaveAttribute('href', '/');
+    await expect(redirectLink).toContainText('Click here to go back home');
+    await expect(redirectLink).toHaveAttribute('href', '/');
   });
 
   test('Should redirect to landing page on click', async ({ page }) => {

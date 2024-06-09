@@ -1,11 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
+import { MotionGlobalConfig } from 'framer-motion';
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
 // require('dotenv').config();
-
+MotionGlobalConfig.skipAnimations = true;
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -50,7 +51,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'pnpm start',
+    command: 'pnpm dev',
     url: 'http://127.0.0.1:3000',
     reuseExistingServer: !process.env.CI,
   },

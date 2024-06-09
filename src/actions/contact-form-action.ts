@@ -25,7 +25,7 @@ export async function contactFormAction(formData: unknown) {
 
   try {
     if (NODE_ENV === 'development') {
-      await waitTime(2000);
+      await waitTime(500);
       return {
         response: {
           status: 200,

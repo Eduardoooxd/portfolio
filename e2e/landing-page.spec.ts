@@ -37,9 +37,11 @@ test.describe('Landing Page Tests', () => {
     await page.fill('textarea[name="message"]', 'Hello, This is a test message.');
     // Click the submit button
     await page.click('text=Submit');
+
+    const toastContainer = page.getByTestId('toast-container');
     // Verify submission success message or redirection
-    await expect(page.getByTestId('toast-container')).toBeVisible();
-    await expect(page.getByTestId('toast-container')).toContainText('Email sent successfully!');
+    await expect(toastContainer).toBeVisible();
+    await expect(toastContainer).toContainText('Email sent successfully!');
   });
 
   test('Should show the contact form errors', async ({ page }) => {

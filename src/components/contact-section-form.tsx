@@ -107,7 +107,7 @@ function ContactSectionSubmitButton({ isPending }: ContactSectionSubmitButtonPro
       {isPending ? (
         <>
           Please wait
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          <Loader2 data-testid="contact-section-spinner" className="mr-2 h-4 w-4 animate-spin" />
         </>
       ) : (
         <>
