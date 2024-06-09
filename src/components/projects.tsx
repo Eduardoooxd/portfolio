@@ -11,7 +11,7 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" ref={ref} className="scroll-mt-28">
+    <section id="projects" ref={ref} className="scroll-mt-8 sm:scroll-mt-28">
       <SectionHeading>My projects</SectionHeading>
       <div className="flex flex-col gap-4 sm:gap-8">
         {projectsData.map((project) => (

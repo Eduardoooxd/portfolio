@@ -23,7 +23,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={cn('flex min-h-full flex-col bg-background antialiased', inter.className)}>
         <ThemeContextProvider>
           <ActiveSectionProvider>
-            {/* TODO: Find better background */}
             <Header />
             {children}
             <Footer />

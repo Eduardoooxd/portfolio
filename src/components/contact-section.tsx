@@ -14,7 +14,7 @@ export default function ContactSection() {
     <motion.section
       ref={ref}
       id="contact"
-      className="w-[min(100%,38rem)] scroll-mt-28"
+      className="w-[min(100%,38rem)] scroll-mt-8 sm:scroll-mt-28"
       initial={{
         opacity: 0,
       }}

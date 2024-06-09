@@ -13,7 +13,7 @@ export default function AboutMe() {
     <motion.section
       id="about"
       ref={ref}
-      className="max-w-3xl scroll-mt-28 text-center leading-8"
+      className="max-w-3xl scroll-mt-8 text-center leading-8 sm:scroll-mt-28"
       initial={{
         opacity: 0,
         y: 150,

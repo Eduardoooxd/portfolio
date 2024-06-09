@@ -20,7 +20,7 @@ export default function Experience() {
   const { theme } = useThemeContext();
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28">
+    <section id="experience" ref={ref} className="scroll-mt-8 sm:scroll-mt-28">
       <SectionHeading>My Experience</SectionHeading>
 
       <div ref={timelineInViewRef}>

@@ -26,7 +26,7 @@ export default function Hero() {
     <section
       id="home"
       ref={ref}
-      className="min-dh-screen-without-nav flex scroll-mt-[9999px] flex-col justify-evenly gap-2 sm:min-h-[initial] sm:justify-normal sm:gap-8"
+      className="min-dh-screen-without-nav flex scroll-mt-[9999px] flex-col justify-center gap-12 sm:min-h-[initial] sm:justify-normal sm:gap-8"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
