@@ -18,7 +18,10 @@ export const contactInformation = {
 export const baseUrl = 'https://eduardocouto.dev';
 
 export const WEBSITE_METADATA: Metadata = {
-  title: 'Eduardo Couto | Personal Portfolio',
+  title: {
+    template: '%s | Eduardo Couto',
+    default: 'Eduardo Couto',
+  },
   description:
     'I am a versatile full-stack software developer with over 2 years of experience, I have honed my skills in Java, Typescript, AWS, React, Terraform, Node.js, and various backend technologies. I am dedicated to delivering high-quality, scalable, and maintainable solutions that solve real-world problems.',
   applicationName: 'Eduardo Couto Personal Portfolio',
@@ -29,7 +32,10 @@ export const WEBSITE_METADATA: Metadata = {
       url: 'https://www.linkedin.com/in/eduardo-ribeiro-couto/',
     },
   ],
-
+  metadataBase: new URL(baseUrl),
+  alternates: {
+    canonical: './',
+  },
   generator: 'Next.js, Tailwind CSS, TypeScript, ESLint, Prettier, Jest, and Husky',
 };
 

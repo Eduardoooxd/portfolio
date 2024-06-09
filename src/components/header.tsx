@@ -1,5 +1,4 @@
 'use client';
-import { baseUrl } from '@/lib/data';
 import { useScreenSize } from '@/lib/hooks';
 import { AnimatePresence } from 'framer-motion';
 import DesktopHeader from './desktop-header';
@@ -13,11 +12,8 @@ export default function Header() {
   }
 
   return (
-    <>
-      <a rel="canonical" href={baseUrl} className="hidden"></a>
-      <AnimatePresence>
-        {screenSize.width > 640 ? <DesktopHeader /> : <MobileHeader />}
-      </AnimatePresence>
-    </>
+    <AnimatePresence>
+      {screenSize.width > 640 ? <DesktopHeader /> : <MobileHeader />}
+    </AnimatePresence>
   );
 }
