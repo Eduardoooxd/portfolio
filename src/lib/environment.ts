@@ -13,7 +13,33 @@ const environmentVariablesSchema = z.object({
 });
 
 export const environmentVariables = () => {
+  if (typeof window !== 'undefined') {
+    // Come up with your own helpful error :)
+    throw new Error('Environment should not be imported on the frontend!');
+  }
+
   const parsedEnvironmentVariables = environmentVariablesSchema.safeParse(process.env);
+
+  if (!parsedEnvironmentVariables.success) {
+    throw new Error(parsedEnvironmentVariables.error.message);
+  }
+
+  return parsedEnvironmentVariables.data;
+};
+
+const publicEnvironmentVariablesSchema = z.object({
+  NEXT_PUBLIC_POSTHOG_KEY: z.any(),
+  NEXT_PUBLIC_POSTHOG_HOST: z.any(),
+  NEXT_PUBLIC_NODE_ENV: z
+    .string()
+    .min(1)
+    .refine((value) => ['development', 'production'].includes(value), {
+      message: 'NODE_ENV must be either development or production',
+    }),
+});
+
+export const publicEnvironmentVariables = () => {
+  const parsedEnvironmentVariables = publicEnvironmentVariablesSchema.safeParse(process.env);
 
   if (!parsedEnvironmentVariables.success) {
     throw new Error(parsedEnvironmentVariables.error.message);
