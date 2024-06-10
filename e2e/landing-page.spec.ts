@@ -1,4 +1,7 @@
 import { expect, test } from '@playwright/test';
+import fs from 'fs';
+import path from 'path';
+import pdfParse from 'pdf-parse';
 
 test.describe('Landing Page Tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -26,6 +29,40 @@ test.describe('Landing Page Tests', () => {
     await expect(projectsHeading).toBeTruthy();
     await expect(projectsHeading).toContainText('My projects');
     await expect(projectsHeading).toBeVisible();
+  });
+
+  test('Should download the resume', async ({ page, browser }) => {
+    const downloadPath = path.join(__dirname, 'test-results');
+    if (!fs.existsSync(downloadPath)) {
+      fs.mkdirSync(downloadPath);
+    }
+
+    const context = await browser.newContext({ acceptDownloads: true });
+    const newPage = await context.newPage();
+
+    await newPage.goto('/');
+
+    const downloadPromise = page.waitForEvent('download');
+    await page.getByTestId('download-cv-trigger').click();
+    const download = await downloadPromise;
+
+    const downloadFilePath = path.join(downloadPath, download.suggestedFilename());
+
+    // Wait for the download to complete
+    await download.saveAs(downloadFilePath);
+
+    expect(download.suggestedFilename()).toBe('eduardo_couto_resume.pdf');
+    // Verify the file exists
+    expect(fs.existsSync(downloadFilePath)).toBeTruthy();
+
+    // Check if the file is a valid PDF
+    const dataBuffer = fs.readFileSync(downloadFilePath);
+    const pdfData = await pdfParse(dataBuffer);
+    expect(pdfData.numpages).toBeGreaterThan(0);
+
+    // Clean up the file
+    fs.unlinkSync(downloadFilePath);
+    await context.close();
   });
 
   test('Should submit the Contact form successfully', async ({ page }) => {

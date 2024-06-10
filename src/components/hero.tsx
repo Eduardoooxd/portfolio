@@ -130,7 +130,12 @@ export default function Hero() {
           className="rounded-full shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-95"
           asChild
         >
-          <a className="flex items-center gap-1" href="/eduardo_couto_resume.pdf" download>
+          <a
+            className="flex items-center gap-1"
+            href="/eduardo_couto_resume.pdf"
+            download
+            data-testid="download-cv-trigger"
+          >
             Download CV
             <ArrowDownToLine size={20} />
           </a>
