@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import pdfParse from 'pdf-parse';
 
-test.describe('Landing Page Tests', () => {
+test.describe('Landing Page Tests on Light Mode', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to the base URL before each test
     await page.goto('/');
@@ -11,6 +11,48 @@ test.describe('Landing Page Tests', () => {
 
   test('Should have the appropriate page title', async ({ page }) => {
     await expect(page).toHaveTitle(/Eduardo Couto/);
+  });
+
+  test('Should have the page on light mode by default', async ({ page }) => {
+    const htmlElement = await page.$('html');
+
+    expect(htmlElement).not.toBeNull();
+    const hasDarkClass = await htmlElement?.evaluate((node) => node.classList.contains('dark'));
+    expect(hasDarkClass).toBeFalsy();
+
+    const darkModeToggle = page.getByTestId('dark-mode-toggle');
+    await expect(darkModeToggle).toBeVisible();
+
+    const lightModeToggle = page.getByTestId('light-mode-toggle');
+    await expect(lightModeToggle).not.toBeVisible();
+  });
+
+  test('Should allow switching the page to dark', async ({ page }) => {
+    let darkModeToggle = page.getByTestId('dark-mode-toggle');
+    await expect(darkModeToggle).toBeVisible();
+
+    let lightModeToggle = page.getByTestId('light-mode-toggle');
+    await expect(lightModeToggle).not.toBeVisible();
+
+    // Click the dark mode toggle
+    await darkModeToggle.click();
+
+    darkModeToggle = page.getByTestId('dark-mode-toggle');
+    await expect(darkModeToggle).not.toBeVisible();
+
+    lightModeToggle = page.getByTestId('light-mode-toggle');
+    await expect(lightModeToggle).toBeVisible();
+
+    // Verify the dark mode preference is stored
+    const theme = await page.evaluate(() => localStorage.getItem('theme'));
+    expect(theme).toBe('dark');
+
+    // Verify if the page have dark class
+    const htmlElement = await page.$('html');
+
+    expect(htmlElement).not.toBeNull();
+    const hasDarkClass = await htmlElement?.evaluate((node) => node.classList.contains('dark'));
+    expect(hasDarkClass).toBeTruthy();
   });
 
   test('Should check content on hero section', async ({ page }) => {
@@ -104,5 +146,58 @@ test.describe('Landing Page Tests', () => {
     await expect(page.getByTestId('invalid-message-warning')).toHaveText(
       'Message must be at least 10 characters long',
     );
+  });
+});
+
+test.describe('Landing Page Test on Dark mode', () => {
+  test.beforeEach(async ({ page }) => {
+    // Navigate to the base URL before each test
+    await page.goto('/');
+  });
+
+  test.use({
+    colorScheme: 'dark', // or 'light'
+  });
+
+  test('Should have the page on dark mode by default', async ({ page }) => {
+    const htmlElement = await page.$('html');
+
+    expect(htmlElement).not.toBeNull();
+    const hasDarkClass = await htmlElement?.evaluate((node) => node.classList.contains('dark'));
+    expect(hasDarkClass).toBeTruthy;
+
+    const lightModeToggle = page.getByTestId('light-mode-toggle');
+    await expect(lightModeToggle).toBeVisible();
+
+    const darkModeToggle = page.getByTestId('dark-mode-toggle');
+    await expect(darkModeToggle).not.toBeVisible();
+  });
+
+  test('Should allow switching the page to light mode', async ({ page }) => {
+    let darkModeToggle = page.getByTestId('dark-mode-toggle');
+    await expect(darkModeToggle).not.toBeVisible();
+
+    let lightModeToggle = page.getByTestId('light-mode-toggle');
+    await expect(lightModeToggle).toBeVisible();
+
+    // Click the light mode toggle
+    await lightModeToggle.click();
+
+    darkModeToggle = page.getByTestId('dark-mode-toggle');
+    await expect(darkModeToggle).toBeVisible();
+
+    lightModeToggle = page.getByTestId('light-mode-toggle');
+    await expect(lightModeToggle).not.toBeVisible();
+
+    // Verify the dark mode preference is stored
+    const theme = await page.evaluate(() => localStorage.getItem('theme'));
+    expect(theme).toBe('light');
+
+    // Verify if the page have dark class
+    const htmlElement = await page.$('html');
+
+    expect(htmlElement).not.toBeNull();
+    const hasDarkClass = await htmlElement?.evaluate((node) => node.classList.contains('dark'));
+    expect(hasDarkClass).toBeFalsy();
   });
 });
