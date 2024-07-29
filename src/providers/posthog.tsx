@@ -1,5 +1,6 @@
 'use client';
 
+import { ENV_VARS } from '@/lib/environment';
 import posthog from 'posthog-js';
 import { PostHogProvider } from 'posthog-js/react';
 
@@ -7,10 +8,10 @@ interface CSPostHogProviderProps {
   children: React.ReactNode;
 }
 
-if (typeof window !== 'undefined') {
-  const { NEXT_PUBLIC_POSTHOG_KEY, NEXT_PUBLIC_POSTHOG_HOST, NEXT_PUBLIC_NODE_ENV } = process.env;
+const { NEXT_PUBLIC_POSTHOG_KEY, NEXT_PUBLIC_POSTHOG_HOST, NEXT_PUBLIC_NODE_ENV } = ENV_VARS;
 
-  posthog.init(NEXT_PUBLIC_POSTHOG_KEY as string, {
+if (typeof window !== 'undefined') {
+  posthog.init(NEXT_PUBLIC_POSTHOG_KEY, {
     api_host: NEXT_PUBLIC_POSTHOG_HOST,
     person_profiles: 'identified_only',
     loaded: (posthog) => {

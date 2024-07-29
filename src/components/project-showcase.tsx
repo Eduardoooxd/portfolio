@@ -3,6 +3,7 @@
 import { Project } from '@/lib/data';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import posthog from 'posthog-js';
 import { useRef } from 'react';
 import { Badge } from './shared/badge';
 
@@ -35,7 +36,13 @@ export default function ProjectShowcase({ project }: ProjectShowcaseProps) {
         ref={containerRef}
         className="relative max-w-2xl overflow-hidden rounded-lg border border-black/5 bg-gray-100 transition hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/20 sm:h-72 sm:pr-8 sm:group-even:pl-8"
       >
-        <a href={href} target="_blank">
+        <a
+          onClick={() => {
+            posthog.capture('CHECKED_PROJECT', { property: `Checked Project ${title}` });
+          }}
+          href={href}
+          target="_blank"
+        >
           <div className="flex h-full flex-col px-5 pb-7 pt-4 sm:max-w-[50%] sm:pl-10 sm:pr-2 sm:pt-10 sm:group-even:ml-[18rem]">
             <h3 className="text-2xl font-semibold transition group-hover:underline">{title}</h3>
             <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">{description}</p>

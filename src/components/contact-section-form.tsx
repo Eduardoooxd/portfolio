@@ -7,6 +7,7 @@ import { Textarea } from '@/components/shared/textarea';
 import { ContactFormSchema, ContactFormType } from '@/domain/contact-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Send } from 'lucide-react';
+import posthog from 'posthog-js';
 import { useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { useToast } from './shared/use-toast';
@@ -101,22 +102,28 @@ export default function ContactSectionForm() {
           )}
         />
 
-        <ContactSectionSubmitButton isPending={isPending} />
+        <ContactSectionSubmitButton
+          isPending={isPending}
+          onClick={() => {
+            posthog.capture('SUBMITED_CONTACT_FORM', { property: form.getValues('email') });
+          }}
+        />
       </form>
     </Form>
   );
 }
 
-interface ContactSectionSubmitButtonProps {
+interface ContactSectionSubmitButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isPending: boolean;
 }
 
-function ContactSectionSubmitButton({ isPending }: ContactSectionSubmitButtonProps) {
+function ContactSectionSubmitButton({ isPending, ...props }: ContactSectionSubmitButtonProps) {
   return (
     <Button
       disabled={isPending}
       className="group inline-flex w-fit gap-1 rounded-full px-6 hover:scale-105 focus:scale-105 active:scale-95"
       type="submit"
+      {...props}
     >
       {isPending ? (
         <>

@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { ArrowDownToLine, ArrowUpRight, Github, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import posthog from 'posthog-js';
 import { Button } from './shared/button';
 
 export default function Hero() {
@@ -118,6 +119,7 @@ export default function Hero() {
             onClick={() => {
               setActive('Contact');
               setTimeOfLastClick(Date.now());
+              posthog.capture('CLICKED_CONTACT_HERO', { property: 'Clicked Contact Hero' });
             }}
           >
             Contact me here
@@ -135,6 +137,9 @@ export default function Hero() {
             href="/eduardo_couto_resume.pdf"
             download
             data-testid="download-cv-trigger"
+            onClick={() => {
+              posthog.capture('DOWNLOAD_CV', { property: 'Download CV' });
+            }}
           >
             Download CV
             <ArrowDownToLine size={20} />
@@ -146,6 +151,9 @@ export default function Hero() {
             variant="secondary"
             className="rounded-full shadow-lg transition hover:scale-105 hover:underline hover:underline-offset-2 focus:scale-105 active:scale-95"
             asChild
+            onClick={() => {
+              posthog.capture('CHECKED_LINKEDIN', { property: 'Checked Linkedin' });
+            }}
           >
             <a target="_blank" href={linkedin}>
               <Linkedin size={20} />
@@ -158,7 +166,12 @@ export default function Hero() {
             asChild
           >
             <a target="_blank" href={github}>
-              <Github size={20} />
+              <Github
+                onClick={() => {
+                  posthog.capture('CHECKED_GITHUB', { property: 'Checked Github' });
+                }}
+                size={20}
+              />
             </a>
           </Button>
         </div>
