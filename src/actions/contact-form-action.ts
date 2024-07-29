@@ -2,12 +2,12 @@
 
 import { ContactFormSchema } from '@/domain/contact-form';
 import ContactFormEmail from '@/email/contact-form-email';
-import { environmentVariables } from '@/lib/environment';
+import { ENV_VARS } from '@/lib/environment';
 import { waitTime } from '@/lib/utils';
 import React from 'react';
 import { Resend } from 'resend';
 
-const { RESEND_API_KEY, RESEND_FROM_EMAIL, RESEND_TO_EMAIL, NODE_ENV } = environmentVariables();
+const { RESEND_API_KEY, RESEND_FROM_EMAIL, RESEND_TO_EMAIL, NODE_ENV } = ENV_VARS;
 
 const resend = new Resend(RESEND_API_KEY);
 
