@@ -27,7 +27,7 @@ export default function ThemeContextProvider({ children }: ThemeContextProviderP
       }
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setTheme('dark');
-      window.localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add('dark');
     }
   }, []);
 

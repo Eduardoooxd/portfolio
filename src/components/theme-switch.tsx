@@ -13,7 +13,11 @@ export default function ThemeSwitch() {
       className="fixed bottom-5 right-5 h-[3rem] w-[3rem] rounded-full shadow-2xl backdrop-blur-[0.5rem] transition-all hover:scale-[1.05] active:scale-95"
       onClick={toggleTheme}
     >
-      {theme === 'light' ? <MoonStar /> : <SunMedium />}
+      {theme === 'light' ? (
+        <MoonStar data-testid="dark-mode-toggle" />
+      ) : (
+        <SunMedium data-testid="light-mode-toggle" />
+      )}
     </Button>
   );
 }

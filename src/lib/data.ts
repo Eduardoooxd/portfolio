@@ -15,7 +15,7 @@ export const contactInformation = {
   github: 'https://github.com/Eduardoooxd',
 } as const;
 
-export const baseUrl = 'https://eduardocouto.dev';
+export const baseUrl = 'https://eduardocouto.dev/';
 
 export const WEBSITE_METADATA: Metadata = {
   title: {
@@ -33,9 +33,6 @@ export const WEBSITE_METADATA: Metadata = {
     },
   ],
   metadataBase: new URL(baseUrl),
-  alternates: {
-    canonical: './',
-  },
   generator: 'Next.js, Tailwind CSS, TypeScript, ESLint, Prettier, Jest, and Husky',
 };
 
