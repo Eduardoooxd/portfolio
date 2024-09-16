@@ -19,12 +19,12 @@ export const baseUrl = 'https://eduardocouto.dev/';
 
 export const WEBSITE_METADATA: Metadata = {
   title: {
-    template: '%s | Eduardo Couto',
-    default: 'Eduardo Couto',
+    template: '%s | Eduardo Couto - Full Stack Software Developer',
+    default: 'Eduardo Couto - Full Stack Software Developer',
   },
   description:
-    'I am a versatile full-stack software developer with over 2 years of experience, I have honed my skills in Java, Typescript, AWS, React, Terraform, Node.js, and various backend technologies. I am dedicated to delivering high-quality, scalable, and maintainable solutions that solve real-world problems.',
-  applicationName: 'Eduardo Couto Personal Portfolio',
+    'Eduardo Couto: Experienced Full Stack Software Developer with 2+ years in Java, TypeScript, AWS, React, and Node.js. Specializing in scalable full stack development solutions, from robust Java backends to responsive front-ends. Passionate dev full stack professional delivering high-quality, maintainable code for real-world software development challenges.',
+  applicationName: 'Eduardo Couto - Full Stack Software Developer Portfolio',
   creator: 'Eduardo Couto',
   authors: [
     {
@@ -32,10 +32,50 @@ export const WEBSITE_METADATA: Metadata = {
       url: 'https://www.linkedin.com/in/eduardo-ribeiro-couto/',
     },
   ],
-  metadataBase: new URL(baseUrl),
   generator: 'Next.js, Tailwind CSS, TypeScript, ESLint, Prettier, Jest, and Husky',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: baseUrl,
+    siteName: 'Eduardo Couto - Full Stack Software Developer',
+    title: 'Eduardo Couto - Full Stack Developer | Java & TypeScript Specialist',
+    description:
+      'Full Stack Software Developer with 2+ years experience in Java, TypeScript, AWS, and more. Building scalable solutions from Portugal for global clients.',
+    images: [
+      {
+        url: `${baseUrl}eduardo_couto.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Eduardo Couto - Full Stack Software Developer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Eduardo Couto - Full Stack Developer | Java & TypeScript Specialist',
+    description:
+      'Full Stack Software Developer with 2+ years experience in Java, TypeScript, AWS, and more. Building scalable solutions from Portugal for global clients.',
+    images: [`${baseUrl}eduardo_couto.jpg`],
+  },
 };
 
+export const JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Eduardo Couto',
+  jobTitle: 'Full Stack Software Developer',
+  url: baseUrl,
+  sameAs: ['https://www.linkedin.com/in/eduardo-ribeiro-couto/', 'https://github.com/Eduardoooxd'],
+  knowsAbout: ['Java', 'TypeScript', 'AWS', 'Full Stack Development', 'React', 'Node.js'],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Blip - Backend Developer',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'Portugal',
+  },
+};
 export const links = [
   {
     name: 'Home',

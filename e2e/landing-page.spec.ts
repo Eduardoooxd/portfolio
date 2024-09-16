@@ -10,7 +10,7 @@ test.describe('Landing Page Tests on Light Mode', () => {
   });
 
   test('Should have the appropriate page title', async ({ page }) => {
-    await expect(page).toHaveTitle(/Eduardo Couto/);
+    await expect(page).toHaveTitle(/Eduardo Couto - Full Stack Software Developer/);
   });
 
   test('Should have the page on light mode by default', async ({ page }) => {
