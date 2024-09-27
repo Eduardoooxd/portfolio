@@ -7,6 +7,7 @@ import { JSON_LD, WEBSITE_METADATA } from '@/lib/data';
 import { cn } from '@/lib/utils';
 import CSPostHogProvider from '@/providers/posthog';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import Footer from '../components/footer';
 import './globals.css';
 
@@ -21,7 +22,8 @@ export const metadata = WEBSITE_METADATA;
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="h-full overflow-x-hidden !scroll-smooth">
-      <script
+      <Script
+        id="my-jsonld-info"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
       />
