@@ -3,7 +3,7 @@ import antiRecursoImage from '@/public/antirecurso.webp';
 import aquapharmaImage from '@/public/aquapharma.webp';
 import delfimMaiaImage from '@/public/delfim_maia.webp';
 import orunImage from '@/public/orun.webp';
-import { BookOpenCheck, GraduationCap, Laptop2, PersonStanding } from 'lucide-react';
+import { BookOpenCheck, Clover, GraduationCap, Laptop2, PersonStanding } from 'lucide-react';
 import { Metadata } from 'next';
 import { StaticImageData } from 'next/image';
 import React from 'react';
@@ -111,6 +111,18 @@ export const links = [
 
 export const experiencesData: Experience[] = [
   {
+    title: 'Associate Software Engineer',
+    location: 'Porto, Portugal 🇵🇹',
+    company: {
+      name: 'Blip.pt',
+      website: 'https://www.blip.pt',
+    },
+    description: 'Developing new ways of entertainments.',
+    icon: React.createElement(Clover),
+    date: 'Sep 2024 - Present',
+    skills: ['Java', 'Kafka', 'AWS', 'CDK', 'GitHub Actions'],
+  },
+  {
     title: 'Full-Stack Software Developer',
     location: 'Porto, Portugal 🇵🇹',
     company: {
@@ -120,7 +132,7 @@ export const experiencesData: Experience[] = [
     description:
       'Delivering high-value features, optimizing codebases, and maintaining multiple microservices. Led the migration of multiple Java microservices to Quarkus, developed a high-availability notification system, and enhanced infrastructure using AWS and Terraform.',
     icon: React.createElement(Laptop2),
-    date: 'Sep 2022 - Present',
+    date: 'Sep 2022 - Sep 2024',
     skills: ['Java', 'Angular', 'AWS', 'Terraform', 'GitHub Actions'],
   },
   {
