@@ -117,10 +117,11 @@ export const experiencesData: Experience[] = [
       name: 'Blip.pt',
       website: 'https://www.blip.pt',
     },
-    description: 'Developing new ways of entertainments.',
+    description:
+      'Building new ways of entertainment while optimizing code efficiency and development workflows. Contributed to system modernization and scalability improvements.',
     icon: React.createElement(Clover),
     date: 'Sep 2024 - Present',
-    skills: ['Java', 'Kafka', 'AWS', 'CDK', 'GitHub Actions'],
+    skills: ['Java', 'Kafka', 'AWS', 'Docker', 'GitHub Actions'],
   },
   {
     title: 'Full-Stack Software Developer',
