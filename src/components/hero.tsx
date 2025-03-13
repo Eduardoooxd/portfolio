@@ -27,7 +27,7 @@ export default function Hero() {
     <section
       id="home"
       ref={ref}
-      className="min-dh-screen-without-nav flex scroll-mt-[9999px] flex-col justify-center gap-12 sm:min-h-[initial] sm:justify-normal sm:gap-8"
+      className="min-dh-screen-without-nav flex scroll-mt-[9999px] flex-col justify-center gap-8 sm:min-h-[initial] sm:justify-normal sm:gap-8"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -50,7 +50,7 @@ export default function Hero() {
               alt="Eduardo Couto Portrait"
               quality={90}
               priority
-              className="h-24 w-24 rounded-full border-2 border-white object-cover shadow-xl"
+              className="h-24 w-24 rounded-full border-2 border-white object-cover object-top shadow-xl"
             />
           </motion.div>
 
