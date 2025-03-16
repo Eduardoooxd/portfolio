@@ -1,24 +1,196 @@
 ---
 title: 'Under the Hood: Exploring the Technologies Powering My Portfolio'
 date: '2025-03-16'
-readingTime: '5 min'
-description: ''
+readingTime: '10 min'
+description: 'A deep dive into the technologies powering my developer portfolio - from Next.js to Vercel hosting, Playwright testing, and more.'
 tags:
   - NextJs
   - Typescript
   - Tailwind
   - Playwright
+  - Github Actions
 published: true
 ---
 
 # Under the Hood: Exploring the Technologies Powering My Portfolio
 
-<p class="mt-10">
-  Hello everybody, in this post I aim to share insights and experiences from my journey as a
-  software developer.
-</p>
+<section className="space-y-4 mt-4"> 
+  <p>
+    As developers, our portfolios serve as both our digital business cards and playgrounds for
+    implementing best practices.
+  </p>
 
-Today, I want to pull back the curtain and discuss the technologies that form the foundation of my
-online portfolio, a central hub showcasing my projects, skills, and professional journey
+  <p>
+    In this article, I'll walk you through the technology stack behind my own <a href="https://github.com/Eduardoooxd/portfolio" className="underline" target="_blank"> my portfolio website</a>,
+    explaining the key choices that make it robust, maintainable, and performant.
+  </p>
+</section>
 
-My goal was to build an efficient and scalable portfolio using modern tools and practices, and the technologies I'll describe are instrumental in achieving that objective.
+## Technologies Used
+
+- **Next.js & React**: The foundation of the website, enabling server-side rendering and a dynamic user experience. Next.js's file-based routing and React's component-based architecture facilitate efficient development and maintenance.
+
+- **TypeScript**: Ensures type safety and enhances code quality, making the development process more robust and error-free.
+
+- **Tailwind CSS**: Provides utility-first CSS classes that streamline the styling process, resulting in a responsive and visually appealing design.
+
+- **Resend**: Manages email functionalities, ensuring reliable communication through contact forms.
+
+- **Playwright**: Utilized for end-to-end testing, ensuring the website's functionality and performance meet the highest standards.
+
+- **Vercel**: Hosts the website, offering seamless deployment and scalability, I can simply just link my Github Repo and it will automaticly deploy new changes.
+
+## Key Features
+
+### Project Showcase
+
+The portfolio highlights various projects, each demonstrating different aspects of my development skills:
+
+- **Aquapharma**: A responsive website developed using Next.js and Tailwind CSS, designed to showcase a health company's portfolio and facilitate user contact submissions.
+
+- **Delfim Maia**: A freelancing project for a law firm, featuring internationalization (i18n) support and a content management system (CMS) for client updates.
+
+- **AntiRecurso**: An open-source learning platform where I was responsible for graphical representation of student grades and implementing dark mode support.
+
+- **Orun**: An e-commerce website integrated with Shopify, supporting internationalization and features like payments and newsletters.
+
+### Contact Form
+
+The contact form is powered by Resend, ensuring that messages are delivered securely and promptly. This feature allows visitors to reach out directly, facilitating networking and collaboration opportunities.
+
+```ts
+const resend = new Resend(RESEND_API_KEY);
+
+export async function contactFormAction(formData: unknown) {
+  const parsedFormData = ContactFormSchema.safeParse(formData);
+
+  if (!parsedFormData.success) {
+    return {
+      error: parsedFormData.error.flatten().fieldErrors,
+    };
+  }
+
+  const { data } = parsedFormData;
+  const { email: senderEmail, message, name } = data;
+
+  try {
+    const response = await resend.emails.send({
+      from: RESEND_FROM_EMAIL,
+      to: RESEND_TO_EMAIL,
+      subject: 'Message from Contact Form 🔥',
+      text: `Name: ${name}\nEmail: ${senderEmail}\nMessage: ${message}`,
+      reply_to: senderEmail,
+      react: React.createElement(ContactFormEmail, { senderEmail, message, name }),
+    });
+
+    return {
+      response,
+    };
+  } catch (error: unknown) {
+    return {
+      error,
+    };
+  }
+}
+```
+
+### Testing and Quality Assurance
+
+To maintain high code quality and functionality, the project employs Playwright for end-to-end testing and Husky for pre-commit hooks
+
+```ts
+test.describe('Landing Page', () => {
+  test.beforeEach(async ({ page }) => {
+    // Navigate to the base URL before each test
+    await page.goto('/');
+  });
+
+  test('Should have the appropriate page title', async ({ page }) => {
+    await expect(page).toHaveTitle(/Eduardo Couto - Full Stack Software Developer/);
+  });
+
+  //...
+
+  test('Should submit the Contact form successfully', async ({ page }) => {
+    // Navigate to the Contact section
+    await page.goto('/#contact');
+
+    // Fill the form
+    await page.getByTestId('contact-name-input').pressSequentially('John Doe');
+    await page.getByTestId('contact-email-input').fill('john.doe@example.com');
+    await page.getByTestId('contact-message-input').fill('Hello, This is a test message.');
+
+    // Click the submit button
+    await page.click('text=Submit');
+
+    const toastContainer = page.getByTestId('toast-container');
+    // Verify submission success message or redirection
+    await expect(toastContainer).toBeVisible();
+    await expect(toastContainer).toContainText('Email sent successfully!');
+  });
+```
+
+Where afterwards I'm running the e2e tests on Github Actions Pipelines
+
+```yaml
+jobs:
+  e2e-tests:
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm ${{ vars.PNPM_VERSION }}
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ vars.PNPM_VERSION }}
+
+      - name: Use Node.js ${{ vars.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ vars.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install project dependencies
+        run: pnpm install
+
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: pnpm e2e:test
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+          RESEND_TO_EMAIL: ${{ secrets.RESEND_TO_EMAIL }}
+          NODE_ENV: development
+          NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.POSTHOG_KEY }}
+          NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.POSTHOG_HOST }}
+          NEXT_PUBLIC_NODE_ENV: development
+
+      - name: Publish Playwright CTRF Detailed Test Summary Results
+        if: always()
+        run: npx github-actions-ctrf tests playwright-report/ctrf-report.json
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 15
+```
+
+## Conclusion
+
+<section className="space-y-4 mt-4"> 
+  <p>
+    Building a developer portfolio is not just about showcasing your projects—it's an opportunity to demonstrate your understanding of modern web development practices.
+    By leveraging Next.js, Vercel, Playwright, Husky, Resend, and Cloudflare, I've created a portfolio that's not only visually appealing but also robust, maintainable, and performant.
+  </p>
+
+  <p>
+    The combination of these technologies provides a smooth development experience while ensuring visitors to my site enjoy fast load times and reliable functionality. 
+    Whether you're building your first portfolio or looking to upgrade an existing one, I hope this breakdown gives you some ideas for your own tech stack.
+  </p>
+</section>
+
+Feel free to explore <a href="https://github.com/Eduardoooxd/portfolio" className="underline" target="_blank"> my portfolio's source code on GitHub </a> to see how all these pieces fit together in practice.
