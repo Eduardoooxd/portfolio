@@ -36,6 +36,17 @@
     --radius: 0.5rem;
 
     --line-color: #e5e7eb;
+
+    /* -- MDX - Colors */
+    --sh-class: #6f42c1; /* Purple for classes */
+    --sh-identifier: #24292e; /* Dark gray for identifiers */
+    --sh-sign: #6a737d; /* Medium gray for punctuation/signs */
+    --sh-property: #005cc5; /* Blue for properties */
+    --sh-entity: #22863a; /* Green for entities/functions */
+    --sh-jsxliterals: #032f62; /* Dark blue for JSX literals */
+    --sh-string: #032f62; /* Dark blue for strings */
+    --sh-keyword: #d73a49; /* Red for keywords */
+    --sh-comment: #6a737d;
   }
 
   .dark {
@@ -70,6 +81,16 @@
 
     /* Can't use HSL because 3rd party css does not support it. */
     --line-color: rgba(0, 0, 0, 0.2);
+
+    --sh-class: #c678dd; /* Bright purple for classes */
+    --sh-identifier: #e6e6e6; /* Off-white for identifiers */
+    --sh-sign: #abb2bf; /* Light gray for punctuation/signs */
+    --sh-property: #61afef; /* Bright blue for properties */
+    --sh-entity: #98c379; /* Green for entities/functions */
+    --sh-jsxliterals: #e5c07b; /* Yellow for JSX literals */
+    --sh-string: #98c379; /* Green for strings */
+    --sh-keyword: #f07178; /* Pink-red for keywords */
+    --sh-comment: #7f848e;
   }
 }
 
