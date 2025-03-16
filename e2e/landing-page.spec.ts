@@ -57,7 +57,7 @@ test.describe('Landing Page Tests on Light Mode', () => {
 
   test('Should check content on hero section', async ({ page }) => {
     await expect(page.getByTestId('hero-message')).toContainText(
-      "Hello, I'm Eduardo. I'm a full-stack developer with 2 years of experience. I enjoy buildingwebsites & applications. My main focus is with Java and React (Next.js).",
+      "Hello, I'm Eduardo. I'm a full-stack developer with 3 years of experience. I enjoy buildingwebsites & applications. My main focus is with Java and React (Next.js).",
     );
   });
 
