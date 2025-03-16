@@ -34,7 +34,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const { title, date, tags } = meta;
 
   return (
-    <PageContainer className="items-start sm:items-center sm:pt-24">
+    <PageContainer className="items-start justify-start sm:items-center sm:pt-24">
       <SectionContainer
         singlePage
         useInViewThreshold={1}

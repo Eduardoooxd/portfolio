@@ -8,6 +8,7 @@ export type Post = {
     description: string;
     date: string;
     tags: string[];
+    readingTime: string;
     published: boolean;
   };
   slug: string;
@@ -31,6 +32,7 @@ export function getPostBySlug(slug: string): Post | null {
         description: data.description,
         date: data.date.toString(),
         tags: data.tags ?? [],
+        readingTime: data.readingTime ?? '10 min',
         published: data.published ?? false,
       },
       content,

@@ -2,6 +2,7 @@
 
 import { Project } from '@/lib/data';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import posthog from 'posthog-js';
 import { useRef } from 'react';
@@ -44,7 +45,10 @@ export default function ProjectShowcase({ project }: ProjectShowcaseProps) {
           target="_blank"
         >
           <div className="flex h-full flex-col px-5 pb-7 pt-4 sm:max-w-[50%] sm:pl-10 sm:pr-2 sm:pt-10 sm:group-even:ml-[18rem]">
-            <h3 className="text-2xl font-semibold transition group-hover:underline">{title}</h3>
+            <span className="inline-flex flex-row">
+              <h3 className="text-2xl font-semibold transition group-hover:underline">{title}</h3>
+              <ExternalLink className="ml-1 h-4 w-4" />
+            </span>
             <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">{description}</p>
             <ul className="mt-4 flex flex-wrap gap-2 sm:mt-auto">
               {tags.map((tag, index) => (
