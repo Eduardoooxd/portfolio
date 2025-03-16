@@ -52,10 +52,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         <article className="space-y-4">
           <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{title}</h1>
 
-          <div className="flex flex-row items-center gap-x-4">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <time className="block text-sm text-zinc-500 dark:text-zinc-400">{date}</time>
 
-            <ul className="flex flex-row items-center gap-2">
+            <ul className="flex flex-row flex-wrap items-center gap-2">
               {tags?.length > 0
                 ? tags?.map((tag, index) => {
                     return <Badge key={index}>{tag}</Badge>;

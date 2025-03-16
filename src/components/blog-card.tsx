@@ -20,7 +20,7 @@ export function BlogCard({ post }: { post: Post }) {
             <span>{readingTime} read</span>
           </div>
 
-          <ul className="flex flex-row items-center gap-2">
+          <ul className="flex flex-row flex-wrap items-center gap-2">
             {tags?.length > 0
               ? tags?.map((tag, index) => {
                   return (
