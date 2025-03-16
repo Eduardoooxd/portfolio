@@ -10,6 +10,7 @@ interface SectionContainerProps {
   sectionName: SectionName;
   className?: string;
   useInViewThreshold?: number;
+  singlePage?: boolean; // Fixes and section on header as always being active
   initial?: Target;
   animate?: Target;
   transition?: Transition;
@@ -25,6 +26,7 @@ export default function SectionContainer({
   sectionName,
   className,
   useInViewThreshold = defaultThreshold,
+  singlePage = false,
   initial = defaultInitial,
   animate = defaultAnimate,
   transition = defaultTransition,
@@ -33,6 +35,7 @@ export default function SectionContainer({
   const { ref } = useSectionInView({
     sectionName,
     useInViewThreshold,
+    singlePage,
   });
 
   return (

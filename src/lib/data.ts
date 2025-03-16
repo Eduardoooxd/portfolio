@@ -88,6 +88,11 @@ export const links = [
     href: '/#about',
   },
   {
+    name: 'Blog',
+    hash: '#blog',
+    href: '/blog',
+  },
+  {
     name: 'Projects',
     hash: '#projects',
     href: '/#projects',

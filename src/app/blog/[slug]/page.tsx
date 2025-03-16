@@ -35,10 +35,15 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   return (
     <PageContainer className="items-start sm:items-center sm:pt-24">
-      <SectionContainer sectionName={'Blog'} className="w-full max-w-4xl space-y-4 text-left">
+      <SectionContainer
+        singlePage
+        useInViewThreshold={1}
+        sectionName={'Blog'}
+        className="w-full space-y-4 text-left"
+      >
         <Link
           href="/blog"
-          className="inline-flex items-center text-sm text-zinc-500 transition-colors hover:text-inherit dark:text-zinc-400"
+          className="inline-flex items-center text-sm text-zinc-500 transition-colors hover:text-inherit dark:text-zinc-400 hover:dark:text-zinc-200"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to all posts

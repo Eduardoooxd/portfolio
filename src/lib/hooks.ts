@@ -8,11 +8,13 @@ interface SectionInViewProps {
   sectionName: SectionName;
   useInViewThreshold?: number;
   triggerOnce?: boolean;
+  singlePage?: boolean; // Fixes and section on header as always being active
 }
 
 export function useSectionInView({
   sectionName,
   useInViewThreshold = 0.75,
+  singlePage = false,
   triggerOnce = false,
 }: SectionInViewProps) {
   const { setActive, timeOfLastClick } = useActiveSectionContext();
@@ -22,10 +24,11 @@ export function useSectionInView({
   });
 
   useEffect(() => {
-    if (inView && Date.now() - timeOfLastClick > 1000) {
+    // Single page always is active and have precedence
+    if (singlePage || (inView && Date.now() - timeOfLastClick > 1000)) {
       setActive(sectionName);
     }
-  }, [inView, setActive, timeOfLastClick, sectionName]);
+  }, [inView, setActive, timeOfLastClick, sectionName, singlePage]);
 
   return { ref, inView };
 }
