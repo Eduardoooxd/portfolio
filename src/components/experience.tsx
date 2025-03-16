@@ -11,6 +11,7 @@ import { Badge } from './shared/badge';
 export default function Experience() {
   const { ref } = useSectionInView({
     sectionName: 'Experience',
+    useInViewThreshold: 0.3,
   });
 
   const { ref: timelineInViewRef, inView: timelineInView } = useInView({

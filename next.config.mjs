@@ -5,6 +5,9 @@ const jiti = createJiti(fileURLToPath(import.meta.url));
 
 jiti('./src/lib/environment');
 
-const nextConfig = {};
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+};
 
 export default nextConfig;
